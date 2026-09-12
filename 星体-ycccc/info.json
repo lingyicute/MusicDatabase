@@ -1,0 +1,17 @@
+{
+  "title": "星体",
+  "author": "ycccc",
+  "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M0000001QNXv2XwhBs.jpg",
+  "url": "https://aqqmusic.tc.qq.com/C400004EKXQw2E8exx.m4a?guid=4538865&vkey=F1D00BA924BDE4C2214FB5FA6F3FA20E4747CFB18DB966148AB24D8E7007A6651402AED455A495AF00AA292259BB2E881FD4B15F93417F15__v2b9abd70&uin=&fromtag=120032&src=C400001zYvtO3LizYV.m4a",
+  "lrc": "https://vercel-meting-api.musifei.org/api?server=tencent&type=lrc&id=001eLg1v4LL7O1",
+  "songmid": "001eLg1v4LL7O1",
+  "duration": 212,
+  "reportedAt": "2026-09-12T16:09:13.411Z",
+  "archivedAt": "2026-09-12T16:10:10.059769+00:00",
+  "files": {
+    "audio": "song.m4a",
+    "cover": "cover.jpg",
+    "lyric": "lyric.lrc",
+    "coverEmbedded": true
+  }
+}
