@@ -1,0 +1,17 @@
+{
+  "title": "依依",
+  "author": "单循",
+  "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M0000031uXh42cUhVv.jpg",
+  "url": "https://aqqmusic.tc.qq.com/C400001QbWeb3WQN3F.m4a?guid=3940585&vkey=774980E125398730C24C3FA33D3C03C8D2730D483FA65E7AEDE65D9DDE013A35D0D9A49224A3E1D416A9856E95BD0F72478996E2DD1BC258__v21e2a162d&uin=&fromtag=120032",
+  "lrc": "https://vercel-meting-api.musifei.org/api?server=tencent&type=lrc&id=001QbWeb3WQN3F",
+  "songmid": "001QbWeb3WQN3F",
+  "duration": 223,
+  "reportedAt": "2026-09-12T15:55:55.724Z",
+  "archivedAt": "2026-09-12T15:56:19.829495+00:00",
+  "files": {
+    "audio": "song.m4a",
+    "cover": "cover.jpg",
+    "lyric": "lyric.lrc",
+    "coverEmbedded": true
+  }
+}
