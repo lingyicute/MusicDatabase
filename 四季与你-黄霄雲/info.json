@@ -1,0 +1,17 @@
+{
+  "title": "四季与你",
+  "author": "黄霄雲",
+  "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000004XWvSK2tCu7f.jpg",
+  "url": "https://aqqmusic.tc.qq.com/C400003AxIba4OSD2y.m4a?guid=2417451&vkey=BCFCFA6D9FC4F9733EC723C4BCCA092A80AB4CCF0A35CAA43C1A3F4E3287117ACAF1A4962C0D0945D47A6C3478BB9A828087ECE9FD4FA5AF__v2b94c226&uin=&fromtag=120032",
+  "lrc": "https://vercel-meting-api.musifei.org/api?server=tencent&type=lrc&id=001oXGjl05TCUA",
+  "songmid": "001oXGjl05TCUA",
+  "duration": 276,
+  "reportedAt": "2026-09-12T16:07:03.615Z",
+  "archivedAt": "2026-09-12T16:08:09.590816+00:00",
+  "files": {
+    "audio": "song.m4a",
+    "cover": "cover.jpg",
+    "lyric": "lyric.lrc",
+    "coverEmbedded": true
+  }
+}
