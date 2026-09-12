@@ -1,0 +1,17 @@
+{
+  "title": "盼",
+  "author": "虞书欣",
+  "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M0000041sAJd0VUpHG.jpg",
+  "url": "https://aqqmusic.tc.qq.com/C400003LM4z14UKC8P.m4a?guid=8142276&vkey=CE454FE5E57793750A0A9EAAC36B60FDAC5E8CF2855374D1D201E1E750A164704039286805FDD05CD39EEEE53BFD2148D7D30EFBA81B8662__v2b9ab41f&uin=&fromtag=120032",
+  "lrc": "https://vercel-meting-api.musifei.org/api?server=tencent&type=lrc&id=003LM4z14UKC8P",
+  "songmid": "003LM4z14UKC8P",
+  "duration": 239,
+  "reportedAt": "2026-09-12T16:06:22.820Z",
+  "archivedAt": "2026-09-12T16:06:48.988708+00:00",
+  "files": {
+    "audio": "song.m4a",
+    "cover": "cover.jpg",
+    "lyric": "lyric.lrc",
+    "coverEmbedded": true
+  }
+}
