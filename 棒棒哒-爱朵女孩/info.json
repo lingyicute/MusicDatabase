@@ -1,0 +1,17 @@
+{
+  "title": "棒棒哒",
+  "author": "爱朵女孩",
+  "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000002a6GIR2BUsWK.jpg",
+  "url": "https://aqqmusic.tc.qq.com/C400001DT23425myHr.m4a?guid=2269488&vkey=ACF7869D219E62B123EBE9B9052824B52F1C9665F97B57D4CD79719D2E16D917F322C4597EC557EFCB16CFE4B6EB665B7EA2F485DCD3A069__v2b9ab63d&uin=&fromtag=120032&src=C400002EaWDD2zFUwf.m4a",
+  "lrc": "https://vercel-meting-api.musifei.org/api?server=tencent&type=lrc&id=000vTzJk4LHIMH",
+  "songmid": "000vTzJk4LHIMH",
+  "duration": 221,
+  "reportedAt": "2026-09-12T16:10:34.201Z",
+  "archivedAt": "2026-09-12T16:11:49.274531+00:00",
+  "files": {
+    "audio": "song.m4a",
+    "cover": "cover.jpg",
+    "lyric": "lyric.lrc",
+    "coverEmbedded": true
+  }
+}

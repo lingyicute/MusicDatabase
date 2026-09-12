@@ -1,0 +1,17 @@
+{
+  "title": "仲夏夜之梦",
+  "author": "爱朵女孩",
+  "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M0000037H2sn0mGPQW.jpg",
+  "url": "https://aqqmusic.tc.qq.com/C400003YyO3H2W7U6g.m4a?guid=6777862&vkey=11028020B803C0FF69CFA28396150CDC224AF0FBA538A65836991D1E6BAB2137462CE9D087FBC288623204392346598BF493542327136C6B__v2b9ab195&uin=&fromtag=120032",
+  "lrc": "https://vercel-meting-api.musifei.org/api?server=tencent&type=lrc&id=0011Y6F80VXugl",
+  "songmid": "0011Y6F80VXugl",
+  "duration": 239,
+  "reportedAt": "2026-09-12T16:10:57.372Z",
+  "archivedAt": "2026-09-12T16:11:38.783516+00:00",
+  "files": {
+    "audio": "song.m4a",
+    "cover": "cover.jpg",
+    "lyric": "lyric.lrc",
+    "coverEmbedded": true
+  }
+}
