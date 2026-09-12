@@ -1,0 +1,17 @@
+{
+  "title": "美美",
+  "author": "周深",
+  "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000004F9tE94DEEpg.jpg",
+  "url": "https://aqqmusic.tc.qq.com/C400001hfXjQ1wMrk0.m4a?guid=5175928&vkey=6CB3E192B45538FF2BC946452FB58F3ACDB5B399DB21A174267257073EF015897300A6AC6ADB4755829DE1EABFCBD8B455EF6753736B6929__v2b9ab63d&uin=&fromtag=120032",
+  "lrc": "https://vercel-meting-api.musifei.org/api?server=tencent&type=lrc&id=000YQ0fF1kSQaX",
+  "songmid": "000YQ0fF1kSQaX",
+  "duration": 260,
+  "reportedAt": "2026-09-12T16:09:50.807Z",
+  "archivedAt": "2026-09-12T16:11:02.294681+00:00",
+  "files": {
+    "audio": "song.m4a",
+    "cover": "cover.jpg",
+    "lyric": "lyric.lrc",
+    "coverEmbedded": true
+  }
+}
