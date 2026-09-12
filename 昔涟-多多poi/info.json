@@ -1,0 +1,17 @@
+{
+  "title": "昔涟",
+  "author": "多多poi",
+  "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M0000044t4gc4Q82P9.jpg",
+  "url": "https://aqqmusic.tc.qq.com/C4000020kvOu3Fe6cq.m4a?guid=6255568&vkey=657366079014A3588145BA4CF39DA0EBC77A465EAD81E6571480CC375EB8535385F85D4318D7D2E43096710CB4D66E31AAED8B4CFE184548__v2b9ab1d6&uin=&fromtag=120032",
+  "lrc": "https://vercel-meting-api.musifei.org/api?server=tencent&type=lrc&id=004UkBXU3TAZwI",
+  "songmid": "004UkBXU3TAZwI",
+  "duration": 187,
+  "reportedAt": "2026-09-12T16:05:56.930Z",
+  "archivedAt": "2026-09-12T16:06:15.226547+00:00",
+  "files": {
+    "audio": "song.m4a",
+    "cover": "cover.jpg",
+    "lyric": "lyric.lrc",
+    "coverEmbedded": true
+  }
+}
