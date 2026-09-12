@@ -1,0 +1,17 @@
+{
+  "title": "风吹过你",
+  "author": "爱朵女孩",
+  "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000002Rx0n711dbDv.jpg",
+  "url": "https://aqqmusic.tc.qq.com/C400002XlpLI0boOb1.m4a?guid=6204685&vkey=83E50411D811161AC24F2B5D63DFEA725148F58DCC27BD4BA8D5D05F589EDBF5734CAD80364657E933B0239C18368206A7B1BD062745E8EF__v2b9ab195&uin=&fromtag=120032&src=C400002qbKdF1oeRpb.m4a",
+  "lrc": "https://vercel-meting-api.musifei.org/api?server=tencent&type=lrc&id=003qv9jn43T9xS",
+  "songmid": "003qv9jn43T9xS",
+  "duration": 234,
+  "reportedAt": "2026-09-12T15:55:03.412Z",
+  "archivedAt": "2026-09-12T15:55:25.812083+00:00",
+  "files": {
+    "audio": "song.m4a",
+    "cover": "cover.jpg",
+    "lyric": "lyric.lrc",
+    "coverEmbedded": true
+  }
+}
