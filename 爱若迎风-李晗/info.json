@@ -1,0 +1,17 @@
+{
+  "title": "爱若迎风",
+  "author": "李晗",
+  "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M0000029RZ0j0Vdy47.jpg",
+  "url": "https://aqqmusic.tc.qq.com/C400004Cnmqs3Kwd3J.m4a?guid=3355167&vkey=7DCA653B550154600004F54AD098EBB72B570BB9F9E1E16491C7B74A368F229A26ECD5BE623CD8E62EE5863A52EE9C24BD58F5B580A886E5__v2b9abd7a&uin=&fromtag=120032&src=C400004UwQLN0uG4MG.m4a",
+  "lrc": "https://vercel-meting-api.musifei.org/api?server=tencent&type=lrc&id=004Cnmqs3Kwd3J",
+  "songmid": "004Cnmqs3Kwd3J",
+  "duration": 239,
+  "reportedAt": "2026-09-12T16:07:56.039Z",
+  "archivedAt": "2026-09-12T16:09:17.721990+00:00",
+  "files": {
+    "audio": "song.m4a",
+    "cover": "cover.jpg",
+    "lyric": "lyric.lrc",
+    "coverEmbedded": true
+  }
+}
