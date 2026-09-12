@@ -1,0 +1,17 @@
+{
+  "title": "芝士配曲奇",
+  "author": "黎汐x",
+  "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000001i9AUi4KNUJm.jpg",
+  "url": "https://aqqmusic.tc.qq.com/C400003K8iQX3LFjac.m4a?guid=1473013&vkey=CACE98BD02974C4FC293F12DDCF2F3BBDF65FC5AB0BFA818A88A6DFDDF0D9DEBABA54596A34727017ED374944DBCAC2FE69FA81561CCECDA__v2b9abd6f&uin=&fromtag=120032",
+  "lrc": "https://vercel-meting-api.musifei.org/api?server=tencent&type=lrc&id=000vKHTn4euyx4",
+  "songmid": "000vKHTn4euyx4",
+  "duration": 216,
+  "reportedAt": "2026-09-12T16:12:13.525Z",
+  "archivedAt": "2026-09-12T16:13:44.996482+00:00",
+  "files": {
+    "audio": "song.m4a",
+    "cover": "cover.jpg",
+    "lyric": "lyric.lrc",
+    "coverEmbedded": true
+  }
+}
