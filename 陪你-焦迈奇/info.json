@@ -1,0 +1,17 @@
+{
+  "title": "陪你",
+  "author": "焦迈奇",
+  "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M0000023pOZo16DuwL.jpg",
+  "url": "https://aqqmusic.tc.qq.com/C400001Ntyyv4Dea1y.m4a?guid=4544211&vkey=6840B06C06CB1C1A46CF3E35BE24D256D64588C5B7EAA19A4D49543ABCB07C2BA2895F2854FBAA6DE08735FD0744ACA0EC9261ACFFF3B57B__v2b94c4c8&uin=&fromtag=120032",
+  "lrc": "https://vercel-meting-api.musifei.org/api?server=tencent&type=lrc&id=001Ntyyv4Dea1y",
+  "songmid": "001Ntyyv4Dea1y",
+  "duration": 249,
+  "reportedAt": "2026-09-12T16:08:57.508Z",
+  "archivedAt": "2026-09-12T16:10:21.514934+00:00",
+  "files": {
+    "audio": "song.m4a",
+    "cover": "cover.jpg",
+    "lyric": "lyric.lrc",
+    "coverEmbedded": true
+  }
+}

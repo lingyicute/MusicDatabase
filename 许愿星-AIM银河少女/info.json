@@ -1,0 +1,17 @@
+{
+  "title": "许愿星",
+  "author": "AIM银河少女",
+  "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000003lJRS20M2rfW.jpg",
+  "url": "https://aqqmusic.tc.qq.com/C400002EejaP22Dab7.m4a?guid=3447185&vkey=B6EFC8D8825B14129F33D11D94EB3960CA4297CF0B7CC0DA396C654B2F0482604F050BF1DDD93280137A76F3C7E27CCE0255FBE9E1AFB002__v2b9aae94&uin=&fromtag=120032",
+  "lrc": "https://vercel-meting-api.musifei.org/api?server=tencent&type=lrc&id=002EejaP22Dab7",
+  "songmid": "002EejaP22Dab7",
+  "duration": 163,
+  "reportedAt": "2026-09-12T16:09:03.125Z",
+  "archivedAt": "2026-09-12T16:10:17.922610+00:00",
+  "files": {
+    "audio": "song.m4a",
+    "cover": "cover.jpg",
+    "lyric": "lyric.lrc",
+    "coverEmbedded": true
+  }
+}
