@@ -1,0 +1,17 @@
+{
+  "title": "生如春风",
+  "author": "云汐",
+  "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000000LylOH2LEsQ1.jpg",
+  "url": "https://aqqmusic.tc.qq.com/C400004PZZy801oXsa.m4a?guid=5398993&vkey=26D1DFD5D7B14B299DFF712FC9D6357FDFF45B7221AA46F433371A5ABB3A04A175D08141332727BDBB1FD536CD24A90C764159C28E63366E__v2b9ab83a&uin=&fromtag=120032",
+  "lrc": "https://vercel-meting-api.musifei.org/api?server=tencent&type=lrc&id=004PZZy801oXsa",
+  "songmid": "004PZZy801oXsa",
+  "duration": 203,
+  "reportedAt": "2026-09-12T15:33:28.723Z",
+  "archivedAt": "2026-09-12T15:33:58.988888+00:00",
+  "files": {
+    "audio": "song.m4a",
+    "cover": "cover.jpg",
+    "lyric": "lyric.lrc",
+    "coverEmbedded": true
+  }
+}
