@@ -328,6 +328,7 @@ jobs:
             echo "No changes to commit."
             exit 0
           fi
-          NEW_DIRS=$(git diff --cached --name-only | cut -d/ -f1 | sort -u | tr '\n' ' ')
-          git commit -m "archive: 归档歌曲 ${NEW_DIRS}"
+          NEW_DIRS=$(git -c core.quotePath=false diff --cached --name-only | cut -d/ -f1 | sort -u)
+          COUNT=$(printf '%s\n' "$NEW_DIRS" | grep -c .)
+          git commit -m "archive: 归档 ${COUNT} 首歌曲" -m "$NEW_DIRS"
           git push origin HEAD:main || (echo "push 冲突，rebase 重试..." && git pull --rebase origin main && git push origin HEAD:main)
