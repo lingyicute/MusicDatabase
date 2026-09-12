@@ -3,13 +3,6 @@
 # 功能：遍历 goodurl 分支的 *.json，下载专辑图/歌曲文件/歌词，
 # 把专辑图嵌入歌曲文件（同时保留独立的专辑图文件），
 # 保存到 main 分支的【歌名-歌手】文件夹，然后把 main commit 回去。
-#
-# 安装位置（注意：两个分支都要有，缺一不可）：
-#   main 分支    ：.github/workflows/archive.yml   （定时/手动任务从默认分支读取，归档逻辑也以此为准）
-#   goodurl 分支 ：.github/workflows/archive.yml   （push 触发的 workflow 必须存在于被 push 的分支）
-# 最简单的同步办法：先合到 main，再把 main merge 到 goodurl。
-#
-# 配套设置：仓库 Settings → Actions → General → Workflow permissions → 选 "Read and write permissions"。
 
 name: Archive goodurl to main
 
