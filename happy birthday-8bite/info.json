@@ -1,0 +1,17 @@
+{
+  "title": "happy birthday.",
+  "author": "8bite",
+  "pic": "https://p2.music.126.net/Q7zVvhQPN9y4ewhgakY_EA==/109951168965878388.jpg",
+  "url": "https://vercel-meting-api.musifei.org/api?server=netease&type=url&id=2088198840",
+  "lrc": "https://vercel-meting-api.musifei.org/api?server=netease&type=lrc&id=2088198840",
+  "songmid": "2088198840",
+  "duration": 156,
+  "reportedAt": "2026-09-13T13:26:04.768Z",
+  "archivedAt": "2026-09-13T13:27:23.301084+00:00",
+  "files": {
+    "audio": "song.mp3",
+    "cover": "cover.jpg",
+    "lyric": "lyric.lrc",
+    "coverEmbedded": true
+  }
+}
