@@ -1,0 +1,17 @@
+{
+  "title": "每朵花都会盛开",
+  "author": "元气少女",
+  "pic": "https://p1.music.126.net/L463YXn1Dt6fmdXTbpDSCQ==/109951168453957938.jpg",
+  "url": "https://vercel-meting-api.musifei.org/api?server=netease&type=url&id=2028571484",
+  "lrc": "https://vercel-meting-api.musifei.org/api?server=netease&type=lrc&id=2028571484",
+  "songmid": "2028571484",
+  "duration": 234,
+  "reportedAt": "2026-09-13T11:23:05.734Z",
+  "archivedAt": "2026-09-13T11:23:47.928333+00:00",
+  "files": {
+    "audio": "song.mp3",
+    "cover": "cover.jpg",
+    "lyric": "lyric.lrc",
+    "coverEmbedded": true
+  }
+}
