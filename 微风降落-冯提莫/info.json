@@ -1,0 +1,17 @@
+{
+  "title": "微风降落",
+  "author": "冯提莫",
+  "pic": "https://p1.music.126.net/Ymy4JEr2yl6RjcVjZMwyEg==/109951169172249357.jpg",
+  "url": "https://vercel-meting-api.musifei.org/api?server=netease&type=url&id=2109656353",
+  "lrc": "https://vercel-meting-api.musifei.org/api?server=netease&type=lrc&id=2109656353",
+  "songmid": "2109656353",
+  "duration": 226,
+  "reportedAt": "2026-09-13T11:19:13.541Z",
+  "archivedAt": "2026-09-13T11:20:05.344049+00:00",
+  "files": {
+    "audio": "song.mp3",
+    "cover": "cover.jpg",
+    "lyric": "lyric.lrc",
+    "coverEmbedded": true
+  }
+}
