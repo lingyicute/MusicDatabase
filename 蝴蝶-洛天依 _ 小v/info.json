@@ -1,0 +1,17 @@
+{
+  "title": "蝴蝶",
+  "author": "洛天依 / 小v",
+  "pic": "https://p2.music.126.net/385Py82eEhF5D7_8C9QUpA==/109951172078581753.jpg",
+  "url": "https://vercel-meting-api.musifei.org/api?server=netease&type=url&id=2750754678",
+  "lrc": "https://vercel-meting-api.musifei.org/api?server=netease&type=lrc&id=2750754678",
+  "songmid": "2750754678",
+  "duration": 220,
+  "reportedAt": "2026-09-13T13:25:55.538Z",
+  "archivedAt": "2026-09-13T13:26:38.013326+00:00",
+  "files": {
+    "audio": "song.mp3",
+    "cover": "cover.jpg",
+    "lyric": "lyric.lrc",
+    "coverEmbedded": true
+  }
+}
