@@ -1,0 +1,17 @@
+{
+  "title": "如今的我们",
+  "author": "纳豆nado / 倪莫问 / 颜素susu / 大哥L-",
+  "pic": "https://p1.music.126.net/KqxHcpmOqr9GzWmtNaED4w==/109951168309519439.jpg",
+  "url": "https://vercel-meting-api.musifei.org/api?server=netease&type=url&id=2022420799",
+  "lrc": "https://vercel-meting-api.musifei.org/api?server=netease&type=lrc&id=2022420799",
+  "songmid": "2022420799",
+  "duration": 266,
+  "reportedAt": "2026-09-13T10:04:45.738Z",
+  "archivedAt": "2026-09-13T10:05:23.043396+00:00",
+  "files": {
+    "audio": "song.mp3",
+    "cover": "cover.jpg",
+    "lyric": "lyric.lrc",
+    "coverEmbedded": true
+  }
+}
