@@ -1,0 +1,17 @@
+{
+  "title": "江上晚风吟",
+  "author": "小田音乐社 / 尹昔眠",
+  "pic": "https://p3.music.126.net/Br7nmTW16CfFX3lNPG9nng==/109951166137420727.jpg",
+  "url": "https://m7.music.126.net/20260915220132/4af691f956bb945c69688ea71ee9cb03/ymusic/obj/w5zDlMODwrDDiGjCn8Ky/14054540166/b0ac/cd54/6de2/5d118613d7b9ec57f6d9b3ed8b528a2d.mp3?vuutv=aad6KcTfJsSAwhuqkotJoEIlgpFlqMzVR7kD9TqTqvzRat9oG0iwUAST14CKSxRtvw31p4IuY3DKgDnZd4Igv3g6JrQrlyNHU1XzrxSf1JA=",
+  "lrc": "https://vercel-meting-api.musifei.org/api?server=netease&type=lrc&id=1857788252",
+  "songmid": "1857788252",
+  "duration": 228,
+  "reportedAt": "2026-09-15T13:36:33.351Z",
+  "archivedAt": "2026-09-15T13:37:11.169329+00:00",
+  "files": {
+    "audio": "song.mp3",
+    "cover": "cover.jpg",
+    "lyric": "lyric.lrc",
+    "coverEmbedded": true
+  }
+}
