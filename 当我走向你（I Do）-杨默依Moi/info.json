@@ -1,0 +1,17 @@
+{
+  "title": "当我走向你（I Do）",
+  "author": "杨默依Moi",
+  "pic": "https://p3.music.126.net/cq0YyQE1pnLJoHz5wWy_Dw==/109951168703738121.jpg",
+  "url": "https://m801.music.126.net/20260915215800/4996ae9d542ea748d3654deddb01c65f/jdymusic/obj/wo3DlMOGwrbDjj7DisKw/29059547609/e3af/8c84/8746/347bd67ebbeb0e9cba316c73bf257b5a.mp3?vuutv=34BoccuAEdHVamGbjXMWvGRAx7BXz75XGpx6Z1m66q1pSCOkzY2T+yeDNrVgnFv1dZVwjUkjg65mLf26zhPEdE22m2aWCbdKBkyga+UqGLI=",
+  "lrc": "https://vercel-meting-api.musifei.org/api?server=netease&type=lrc&id=2059448492",
+  "songmid": "2059448492",
+  "duration": 210,
+  "reportedAt": "2026-09-15T13:33:01.867Z",
+  "archivedAt": "2026-09-15T13:33:40.057636+00:00",
+  "files": {
+    "audio": "song.mp3",
+    "cover": "cover.jpg",
+    "lyric": "lyric.lrc",
+    "coverEmbedded": true
+  }
+}
