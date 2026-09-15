@@ -1,0 +1,17 @@
+{
+  "title": "远星",
+  "author": "Mogoo蘑菇",
+  "pic": "https://p4.music.126.net/brNJMgvnfmsAGMs8ooql1g==/109951166709231863.jpg",
+  "url": "https://m7.music.126.net/20260915215027/ccae7df40fa0aa30686dd5b7f0929ec6/ymusic/obj/w5zDlMODwrDDiGjCn8Ky/14054715409/caca/2cd6/0524/6af39a7a33bbb19f1464e7e02cb1d49d.mp3?vuutv=R1eZcn+U6C9e7J51rFSBHU896P8wW4pU2PBMRrmP4bkKwBE8HrCVqLHv3Du2IjE9eb2m6jVKN18y4bybjmDjFtt7V9UaRd54BB7mTMMWhQs=",
+  "lrc": "https://vercel-meting-api.musifei.org/api?server=netease&type=lrc&id=1901891000",
+  "songmid": "1901891000",
+  "duration": 254,
+  "reportedAt": "2026-09-15T13:25:29.194Z",
+  "archivedAt": "2026-09-15T13:26:04.114462+00:00",
+  "files": {
+    "audio": "song.mp3",
+    "cover": "cover.jpg",
+    "lyric": "lyric.lrc",
+    "coverEmbedded": true
+  }
+}
