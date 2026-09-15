@@ -1,0 +1,17 @@
+{
+  "title": "花香",
+  "author": "徐梦洁",
+  "pic": "https://p4.music.126.net/W13f5FFYrZQrNe0KsWV8gA==/109951171974925973.jpg",
+  "url": "https://m801.music.126.net/20260915220521/40813cfa273e7c56b13bcf66ff3cdeab/jdymusic/obj/wo3DlMOGwrbDjj7DisKw/29312627603/3fdf/bcad/430d/1530b718f2e350b60fa8ee16ee3dc51d.mp3?vuutv=Y7rX+qNA1eS30ymEhORLFTVopWBMnRMpl4VKavf8qBvnfCZIPx4LlhQq0MuT2MiRwT1kNBRoS1ZKP+a+XtbJARjc7nzSCM5I4kiS/uT5ko8=",
+  "lrc": "https://vercel-meting-api.musifei.org/api?server=netease&type=lrc&id=1899341399",
+  "songmid": "1899341399",
+  "duration": 240,
+  "reportedAt": "2026-09-15T13:40:23.106Z",
+  "archivedAt": "2026-09-15T13:41:04.801109+00:00",
+  "files": {
+    "audio": "song.mp3",
+    "cover": "cover.jpg",
+    "lyric": "lyric.lrc",
+    "coverEmbedded": true
+  }
+}
