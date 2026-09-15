@@ -1,0 +1,17 @@
+{
+  "title": "我爱你，所以",
+  "author": "小蓝背心",
+  "pic": "https://p3.music.126.net/reCqK4anGw5rQXzn1jtm7w==/109951173695873903.jpg",
+  "url": "https://m701.music.126.net/20260915210058/09928c84fcd2df0f66516bc3c82cb82d/jdymusic/obj/wo3DlMOGwrbDjj7DisKw/24418012410/1490/8153/23a8/d5d358a12142ec9eb75175998939fc3e.mp3?vuutv=QPAKfD4iVGasTF9qBUqs6Ax9GCuFowLeMQCGZWvUrY9T4QqSn6koHpLve4i8YmFjMTefY9Hsi8GOP9fTsai9KAEf/VhEvnuxJFMTc2G0868=",
+  "lrc": "https://vercel-meting-api.musifei.org/api?server=netease&type=lrc&id=2018439158",
+  "songmid": "2018439158",
+  "duration": 174,
+  "reportedAt": "2026-09-15T12:35:59.642Z",
+  "archivedAt": "2026-09-15T12:36:27.804766+00:00",
+  "files": {
+    "audio": "song.mp3",
+    "cover": "cover.jpg",
+    "lyric": "lyric.lrc",
+    "coverEmbedded": true
+  }
+}
