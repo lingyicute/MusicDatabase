@@ -1,0 +1,17 @@
+{
+  "title": "昔涟【泠鸢】",
+  "author": "泠鸢yousa",
+  "pic": "https://p1.music.126.net/ElSdD5Uoby99_4NwpF8tSA==/109951172373118019.jpg",
+  "url": "https://vercel-meting-api.musifei.org/api?server=netease&type=url&id=3316303962",
+  "lrc": "https://vercel-meting-api.musifei.org/api?server=netease&type=lrc&id=3316303962",
+  "songmid": "3316303962",
+  "duration": 187,
+  "reportedAt": "2026-09-15T05:03:16.157Z",
+  "archivedAt": "2026-09-15T05:04:02.698537+00:00",
+  "files": {
+    "audio": "song.mp3",
+    "cover": "cover.jpg",
+    "lyric": "lyric.lrc",
+    "coverEmbedded": true
+  }
+}
