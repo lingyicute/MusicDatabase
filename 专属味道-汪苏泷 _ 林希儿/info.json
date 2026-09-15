@@ -1,0 +1,17 @@
+{
+  "title": "专属味道",
+  "author": "汪苏泷 / 林希儿",
+  "pic": "https://p3.music.126.net/ZBZeyuWDycelKBLdQPc5gA==/109951172128596445.jpg",
+  "url": "https://m701.music.126.net/20260915222307/b6144e5ed0546518b6ef41182ed8371c/jdymusic/obj/wo3DlMOGwrbDjj7DisKw/28557799329/4e2a/a990/bc1b/cfb221bd2a655c97ab2a256d2766247d.mp3?vuutv=TtIqr9I6wj3U/8B0SSGVX0ZJfg3+72fDfWriz6HM2xF++OjGhadFsq1rQ7E7NfannGkEH80oNEa7MWzMCKmli57B1rHtFpk7VtcuesOHyjc=",
+  "lrc": "https://vercel-meting-api.musifei.org/api?server=netease&type=lrc&id=165375",
+  "songmid": "165375",
+  "duration": 204,
+  "reportedAt": "2026-09-15T13:58:08.134Z",
+  "archivedAt": "2026-09-15T13:58:53.571179+00:00",
+  "files": {
+    "audio": "song.mp3",
+    "cover": "cover.jpg",
+    "lyric": "lyric.lrc",
+    "coverEmbedded": true
+  }
+}
