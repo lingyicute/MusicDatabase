@@ -1,0 +1,17 @@
+{
+  "title": "我眼中的你",
+  "author": "江偌绮（傲七爷）",
+  "pic": "https://p4.music.126.net/0mVBJm-HADPDg8CDPf1G2w==/109951169766946879.jpg",
+  "url": "https://m701.music.126.net/20260915222934/e0b850f21cdd0e536d084308b9678ff3/jdymusic/obj/wo3DlMOGwrbDjj7DisKw/59569873707/cc6f/5d90/aeed/7dbf285a133ee2718f8cee19c5fefba6.mp3?vuutv=kM3SOuzs5yEI62AajuiV/GQoXfEJ3vMQBh2ptqF54YB4tOaX8cjqL6HvYQ1WXNNiqKO9+se7YLjPstXbPu93v2a/1H+oRA+N9gCzytoohB4=",
+  "lrc": "https://vercel-meting-api.musifei.org/api?server=netease&type=lrc&id=2606542605",
+  "songmid": "2606542605",
+  "duration": 206,
+  "reportedAt": "2026-09-15T14:04:36.126Z",
+  "archivedAt": "2026-09-15T14:05:20.385777+00:00",
+  "files": {
+    "audio": "song.mp3",
+    "cover": "cover.jpg",
+    "lyric": "lyric.lrc",
+    "coverEmbedded": true
+  }
+}
