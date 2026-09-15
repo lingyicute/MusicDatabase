@@ -1,0 +1,17 @@
+{
+  "title": "冬眠",
+  "author": "司南",
+  "pic": "https://p3.music.126.net/4KDBaQXnQywQovmqvjx-8Q==/109951164444131697.jpg",
+  "url": "https://m801.music.126.net/20260915210716/9fbbe083db1d30e799307370dc03e4cf/jdymusic/obj/wo3DlMOGwrbDjj7DisKw/14096489624/84d7/ffb8/959c/753132b90329c356f26a94ada8dec044.mp3?vuutv=k/DqNMuKpcvOyrL02/owFzdKugD0Hj0cYZMJ92b2wJVac/oXiGQVP2TmEdbF5afV9pCGyzxQoE6lY/KvygUMOLNSY1R2sUz2yyhwbtfhrHA=",
+  "lrc": "https://vercel-meting-api.musifei.org/api?server=netease&type=lrc&id=1398663411",
+  "songmid": "1398663411",
+  "duration": 270,
+  "reportedAt": "2026-09-15T12:42:17.584Z",
+  "archivedAt": "2026-09-15T12:42:45.711821+00:00",
+  "files": {
+    "audio": "song.mp3",
+    "cover": "cover.jpg",
+    "lyric": "lyric.lrc",
+    "coverEmbedded": true
+  }
+}
