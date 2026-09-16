@@ -3,6 +3,13 @@
 # 功能：遍历 goodurl 分支的 *.json，下载专辑图/歌曲文件/歌词，
 # 把专辑图嵌入歌曲文件（同时保留独立的专辑图文件），
 # 保存到 main 分支的【歌名-歌手】文件夹，然后把 main commit 回去。
+#
+# 容错约定：
+#   - 歌曲文件下载失败 / 过小 / 时长过短 → [FAIL]，整首丢弃，JSON 留在 goodurl 下轮重试。
+#   - 封面或歌词链接损坏 → 软失败，歌曲照常归档，缺什么写进 info.json
+#     （picOk / lrcOk / coverError / lyricError）。
+#   - info.json 是本 workflow 唯一的"缺失状态"来源；missing.txt 由 cleanup workflow
+#     每天扫描 info.json 生成并尝试补抓，本 workflow 不写 missing.txt（避免两边抢同一个文件）。
 
 name: Archive goodurl to main
 
@@ -53,12 +60,16 @@ jobs:
           GOODURL_DIR: goodurl
           MAIN_DIR: main
           JSON_DIR: '' # 必须与 Worker 的 JSON_DIR 一致，默认根目录
+          RETRY_TOTAL: '3'       # 网络层自动重试次数（429/5xx/连接错误）
+          MIN_COVER_BYTES: '1024'
         run: |
           python3 - <<'PYEOF'
           import json, os, re, sys
           from pathlib import Path
           from urllib.parse import urlparse, unquote
           import requests
+          from requests.adapters import HTTPAdapter
+          from urllib3.util.retry import Retry
           import mutagen
           from mutagen.mp3 import MP3
           from mutagen.id3 import ID3, APIC, TIT2, TPE1
@@ -71,102 +82,261 @@ jobs:
           SRC = GOODURL / JSON_DIR if JSON_DIR else GOODURL
 
           UA = {
-            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0 Safari/537.36",
-            "Referer": "https://y.qq.com/",
+              "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0 Safari/537.36",
+              "Referer": "https://y.qq.com/",
           }
           AUDIO_EXTS = {".mp3", ".m4a", ".mp4", ".flac", ".ogg", ".oga", ".wav", ".aac", ".wma", ".opus"}
           MIN_AUDIO_BYTES = 50 * 1024  # 小于此值视为下载失败（可能是错误页）
           MIN_DURATION = 60            # 服务端二次校验：时长必须 >60s
+          MIN_COVER_BYTES = int(os.environ.get("MIN_COVER_BYTES", "1024"))
+          RETRY_TOTAL = int(os.environ.get("RETRY_TOTAL", "3"))
+          IMG_EXT = {"jpeg": ".jpg", "png": ".png", "webp": ".webp", "gif": ".gif"}
+          IMG_MIME = {"jpeg": "image/jpeg", "png": "image/png", "webp": "image/webp", "gif": "image/gif"}
+
+          # ---- 带自动重试的 Session：封面/歌词/音频共用 -------------------------------
+          def make_session():
+              s = requests.Session()
+              retry = Retry(
+                  total=RETRY_TOTAL,
+                  connect=RETRY_TOTAL,
+                  read=RETRY_TOTAL,
+                  status=RETRY_TOTAL,
+                  backoff_factor=1.0,
+                  status_forcelist=(429, 500, 502, 503, 504),
+                  allowed_methods=frozenset(["GET", "HEAD"]),
+                  raise_on_status=False,   # 交给下面的 raise_for_status 统一处理
+              )
+              adapter = HTTPAdapter(max_retries=retry, pool_connections=8, pool_maxsize=8)
+              s.mount("https://", adapter)
+              s.mount("http://", adapter)
+              s.headers.update(UA)
+              return s
+
+          SESSION = make_session()
+
+          def brief_error(e):
+              """把异常压成一个短标记，写进 info.json 的 coverError / lyricError。"""
+              if isinstance(e, requests.HTTPError):
+                  r = getattr(e, "response", None)
+                  if r is not None:
+                      return f"HTTP {r.status_code}"
+                  return "HTTPError"
+              if isinstance(e, requests.Timeout):
+                  return "Timeout"
+              if isinstance(e, requests.ConnectionError):
+                  return "ConnectionError"
+              if isinstance(e, requests.RequestException):
+                  return type(e).__name__
+              return type(e).__name__
 
           def ext_from_url(u, default):
-            try:
-              ext = os.path.splitext(unquote(urlparse(u).path))[1].lower()
-              if re.fullmatch(r"\.[a-z0-9]{2,5}", ext):
-                return ext
-            except Exception:
-              pass
-            return default
+              try:
+                  ext = os.path.splitext(unquote(urlparse(u).path))[1].lower()
+                  if re.fullmatch(r"\.[a-z0-9]{2,5}", ext):
+                      return ext
+              except Exception:
+                  pass
+              return default
 
           def download(url, dest, timeout=120):
-            r = requests.get(url, headers=UA, stream=True, timeout=timeout)
-            r.raise_for_status()
-            with open(dest, "wb") as f:
-              for chunk in r.iter_content(1024 * 64):
-                if chunk:
-                  f.write(chunk)
-            return r.headers.get("Content-Type", "")
+              """先写 .part 再原子改名：中途断流不会在目标目录留下半截文件。"""
+              dest = Path(dest)
+              part = dest.with_name(dest.name + ".part")
+              try:
+                  r = SESSION.get(url, stream=True, timeout=timeout)
+                  try:
+                      r.raise_for_status()
+                  finally:
+                      if r.status_code >= 400:
+                          r.close()
+                  with open(part, "wb") as f:
+                      for chunk in r.iter_content(1024 * 64):
+                          if chunk:
+                              f.write(chunk)
+                  ctype = r.headers.get("Content-Type", "")
+                  part.rename(dest)
+                  return ctype
+              finally:
+                  part.unlink(missing_ok=True)
+
+          def sniff_image(path):
+              """按文件头判断真实图片类型，返回 jpeg/png/webp/gif 或 None。"""
+              try:
+                  with open(path, "rb") as f:
+                      head = f.read(16)
+              except Exception:
+                  return None
+              if head[:3] == b"\xff\xd8\xff":
+                  return "jpeg"
+              if head[:8] == b"\x89PNG\r\n\x1a\n":
+                  return "png"
+              if head[:4] == b"RIFF" and head[8:12] == b"WEBP":
+                  return "webp"
+              if head[:6] in (b"GIF87a", b"GIF89a"):
+                  return "gif"
+              return None
 
           def audio_duration(path):
-            try:
-              f = mutagen.File(str(path))
-              if f is not None and getattr(f, "info", None) is not None:
-                L = getattr(f.info, "length", 0) or 0
-                return float(L)
-            except Exception as e:
-              print(f"    读取时长失败（继续归档）: {e}")
-            return None
+              try:
+                  f = mutagen.File(str(path))
+                  if f is not None and getattr(f, "info", None) is not None:
+                      L = getattr(f.info, "length", 0) or 0
+                      return float(L)
+              except Exception as e:
+                  print(f"    读取时长失败（继续归档）: {e}")
+              return None
 
-          def embed_cover(audio_path, cover_path, title, author):
-            """把封面嵌入音频 tags，同时保留独立封面文件。返回 True/False。"""
-            try:
-              data = cover_path.read_bytes()
-            except Exception as e:
-              print(f"    读取封面失败: {e}")
-              return False
-            suffix = cover_path.suffix.lower()
-            mime = "image/png" if suffix == ".png" else ("image/webp" if suffix == ".webp" else "image/jpeg")
-            ext = audio_path.suffix.lower()
-            try:
-              if ext == ".mp3":
-                try:
-                  tags = ID3(str(audio_path))
-                except Exception:
-                  tags = ID3()
-                tags.delall("APIC")
-                tags.add(APIC(encoding=3, mime=mime, type=3, desc="Cover", data=data))
-                tags.add(TIT2(encoding=3, text=title))
-                tags.add(TPE1(encoding=3, text=author))
-                tags.save(str(audio_path))
-              elif ext in (".m4a", ".mp4"):
-                mp4 = MP4(str(audio_path))
-                fmt = MP4Cover.FORMAT_JPEG if mime == "image/jpeg" else MP4Cover.FORMAT_PNG
-                mp4["covr"] = [MP4Cover(data, imageformat=fmt)]
-                mp4["\xa9nam"] = [title]
-                mp4["\xa9ART"] = [author]
-                mp4.save()
-              elif ext == ".flac":
-                fl = FLAC(str(audio_path))
-                pic = Picture()
-                pic.data = data
-                pic.type = 3
-                pic.mime = mime
-                pic.desc = "Cover"
-                fl.add_picture(pic)
-                fl["title"] = title
-                fl["artist"] = author
-                fl.save()
-              else:
-                print(f"    {ext} 格式不支持嵌入 tags，保留原文件 + 独立封面")
-                return False
-              return True
-            except Exception as e:
-              print(f"    嵌入封面失败({ext}): {e}")
-              return False
+          # ---- tag 写入：与封面解耦 --------------------------------------------------
+          def write_tags(audio_path, title, author):
+              """只写标题/艺术家。没有封面时也会调用，避免音频变成"无名文件"。"""
+              ext = audio_path.suffix.lower()
+              try:
+                  if ext == ".mp3":
+                      try:
+                          tags = ID3(str(audio_path))
+                      except Exception:
+                          tags = ID3()
+                      tags.delall("TIT2")
+                      tags.delall("TPE1")
+                      tags.add(TIT2(encoding=3, text=title))
+                      tags.add(TPE1(encoding=3, text=author))
+                      tags.save(str(audio_path))
+                  elif ext in (".m4a", ".mp4"):
+                      mp4 = MP4(str(audio_path))
+                      if mp4.tags is None:
+                          mp4.add_tags()
+                      mp4["\xa9nam"] = [title]
+                      mp4["\xa9ART"] = [author]
+                      mp4.save()
+                  elif ext == ".flac":
+                      fl = FLAC(str(audio_path))
+                      fl["title"] = title
+                      fl["artist"] = author
+                      fl.save()
+                  else:
+                      # ogg / opus / wav / wma 等：交给 mutagen 通用层尽力写入
+                      f = mutagen.File(str(audio_path))
+                      if f is None:
+                          print(f"    {ext} 格式无法识别，跳过 tag 写入")
+                          return False
+                      if f.tags is None:
+                          f.add_tags()
+                      if isinstance(f.tags, ID3):
+                          f.tags.delall("TIT2")
+                          f.tags.delall("TPE1")
+                          f.tags.add(TIT2(encoding=3, text=title))
+                          f.tags.add(TPE1(encoding=3, text=author))
+                      else:
+                          f.tags["title"] = title
+                          f.tags["artist"] = author
+                      f.save()
+                  return True
+              except Exception as e:
+                  print(f"    写标题/艺术家 tag 失败({ext}): {e}")
+                  return False
+
+          def embed_cover(audio_path, cover_path):
+              """只负责嵌入封面图。返回 True/False。"""
+              try:
+                  data = cover_path.read_bytes()
+              except Exception as e:
+                  print(f"    读取封面失败: {e}")
+                  return False
+              kind = sniff_image(cover_path) or "jpeg"
+              mime = IMG_MIME.get(kind, "image/jpeg")
+              ext = audio_path.suffix.lower()
+              try:
+                  if ext == ".mp3":
+                      try:
+                          tags = ID3(str(audio_path))
+                      except Exception:
+                          tags = ID3()
+                      tags.delall("APIC")
+                      tags.add(APIC(encoding=3, mime=mime, type=3, desc="Cover", data=data))
+                      tags.save(str(audio_path))
+                  elif ext in (".m4a", ".mp4"):
+                      mp4 = MP4(str(audio_path))
+                      if mp4.tags is None:
+                          mp4.add_tags()
+                      fmt = MP4Cover.FORMAT_JPEG if mime == "image/jpeg" else MP4Cover.FORMAT_PNG
+                      mp4["covr"] = [MP4Cover(data, imageformat=fmt)]
+                      mp4.save()
+                  elif ext == ".flac":
+                      fl = FLAC(str(audio_path))
+                      fl.clear_pictures()
+                      pic = Picture()
+                      pic.data = data
+                      pic.type = 3
+                      pic.mime = mime
+                      pic.desc = "Cover"
+                      fl.add_picture(pic)
+                      fl.save()
+                  else:
+                      # wav / ogg / opus 等：能拿到 ID3 容器就嵌，拿不到就只留独立封面文件
+                      f = mutagen.File(str(audio_path))
+                      if f is None:
+                          print(f"    {ext} 格式无法识别，保留独立封面文件")
+                          return False
+                      if f.tags is None:
+                          f.add_tags()
+                      if isinstance(f.tags, ID3):
+                          f.tags.delall("APIC")
+                          f.tags.add(APIC(encoding=3, mime=mime, type=3, desc="Cover", data=data))
+                          f.save()
+                          return True
+                      print(f"    {ext} 的 tag 容器不支持封面，保留独立封面文件")
+                      return False
+                  return True
+              except Exception as e:
+                  print(f"    嵌入封面失败({ext}): {e}")
+                  return False
+
+          def looks_like_html(text):
+              t = text.lstrip()[:1024].lower()
+              if t.startswith("<!doctype") or t.startswith("<html") or t.startswith("<?xml"):
+                  return True
+              return ("<html" in t or "<body" in t) and "</" in t
+
+          def lyric_looks_ok(text, ctype):
+              """200 也可能是错误页/空 JSON，做一次内容校验。返回 (ok, reason)。"""
+              t = (text or "").strip()
+              if not t:
+                  return False, "empty"
+              if looks_like_html(t):
+                  return False, "html_page"
+              ct = (ctype or "").lower()
+              if "html" in ct and not re.search(r"\[\d{1,3}:\d{2}", t):
+                  return False, "html_ctype"
+              if t.startswith("{") and re.search(r'"(ret|code|errcode)"\s*:\s*(?!0\b)\d+', t):
+                  return False, "api_error"
+              return True, None
 
           def fetch_lyric_text(url):
-            r = requests.get(url, headers=UA, timeout=60)
-            r.raise_for_status()
-            text = r.content.decode("utf-8", errors="replace")
-            t = text.strip()
-            if t.startswith("{"):
-              try:
-                j = json.loads(t)
-                for k in ("lyric", "lrc", "data"):
-                  if isinstance(j.get(k), str) and j[k].strip():
-                    return j[k]
-              except Exception:
-                pass
-            return text
+              r = SESSION.get(url, timeout=60)
+              r.raise_for_status()
+              ctype = r.headers.get("Content-Type", "")
+              raw = r.content
+              text = None
+              for enc in ("utf-8", "gb18030"):
+                  try:
+                      text = raw.decode(enc)
+                      break
+                  except UnicodeDecodeError:
+                      continue
+              if text is None:
+                  text = raw.decode("utf-8", errors="replace")
+              t = text.strip()
+              if t.startswith("{"):
+                  try:
+                      j = json.loads(t)
+                      for k in ("lyric", "lrc", "data"):
+                          if isinstance(j.get(k), str) and j[k].strip():
+                              return j[k], ctype
+                  except Exception:
+                      pass
+              return text, ctype
+
+          MISSING = []  # (folder, kind, reason) —— 只用于日志汇总，实际状态记在 info.json
 
           def process_one(json_path):
             try:
@@ -188,11 +358,12 @@ jobs:
             target = MAIN / folder_name
 
             # 已归档（文件夹存在且有音频文件）→ 跳过
+            # 注意：这里只判断音频，缺封面/缺歌词的老文件夹由 cleanup 的 refetch 负责补
             if target.is_dir():
               for p in target.glob("song.*"):
-                if p.suffix.lower() in AUDIO_EXTS and p.stat().st_size > MIN_AUDIO_BYTES:
-                  print(f"[SKIP] {folder_name}: main 已存在，跳过")
-                  return "skip"
+                  if p.suffix.lower() in AUDIO_EXTS and p.stat().st_size > MIN_AUDIO_BYTES:
+                      print(f"[SKIP] {folder_name}: main 已存在，跳过")
+                      return "skip"
 
             print(f"[PROC] {folder_name}")
             tmp = target.with_name(target.name + ".__tmp__")
@@ -221,62 +392,83 @@ jobs:
               if dur:
                 print(f"    时长: {dur:.1f}s")
 
-              # 2) 下载专辑图
+              # 2) 下载专辑图（失败/无效只丢封面，歌曲继续归档）
               cover_file = None
-              if pic.startswith("http"):
+              cover_err = None
+              cover_bin = tmp / "cover.bin"
+              if not pic.startswith("http"):
+                cover_err = "no_url"
+                print("    无封面 url，跳过封面")
+              else:
                 try:
                   print(f"    下载封面: {pic[:90]}...")
-                  ctype_img = download(pic, tmp / "cover.bin")
-                  ctype_img = (ctype_img or "").lower()
-                  if "png" in ctype_img:
-                    cover_ext = ".png"
-                  elif "webp" in ctype_img:
-                    cover_ext = ".webp"
+                  ctype_img = (download(pic, cover_bin) or "").lower()
+                  size = cover_bin.stat().st_size
+                  kind = sniff_image(cover_bin)
+                  if size < MIN_COVER_BYTES:
+                    cover_err = f"too_small({size}B)"
+                    print(f"    封面过小({size}B)，丢弃封面")
+                  elif kind is None:
+                    # 典型情况：链接失效后服务器返回 200 + HTML 错误页
+                    cover_err = f"not_image({ctype_img or 'unknown-ctype'})"
+                    print(f"    封面不是有效图片(Content-Type={ctype_img or '未知'})，丢弃封面")
                   else:
-                    cover_ext = ext_from_url(pic, ".jpg")
-                    if cover_ext not in (".jpg", ".jpeg", ".png", ".webp"):
-                      cover_ext = ".jpg"
-                  cover_file = tmp / ("cover" + cover_ext)
-                  (tmp / "cover.bin").rename(cover_file)
-                  if cover_file.stat().st_size < 1024:
-                    print("    封面过小，丢弃封面")
-                    cover_file.unlink(missing_ok=True)
-                    cover_file = None
+                    if ctype_img and "image" not in ctype_img:
+                      print(f"    提示: Content-Type={ctype_img} 与魔数({kind})不符，按魔数保存")
+                    cover_file = tmp / ("cover" + IMG_EXT[kind])
+                    cover_bin.rename(cover_file)
+                    print(f"    封面: {cover_file.name} ({size}B)")
                 except Exception as e:
-                  print(f"    封面下载失败（继续归档歌曲）: {e}")
-              else:
-                print("    无封面 url，跳过封面")
+                  cover_err = brief_error(e)
+                  print(f"    封面下载失败（继续归档歌曲）: {cover_err} / {e}")
+                finally:
+                  # 断流/异常时清掉半成品，避免被 rename 进正式文件夹提交到 main
+                  cover_bin.unlink(missing_ok=True)
 
-              # 3) 下载歌词
+              # 3) 下载歌词（失败/无效只丢歌词，歌曲继续归档）
               lyric_file = None
-              if lrc.startswith("http"):
+              lyric_err = None
+              if not lrc.startswith("http"):
+                lyric_err = "no_url"
+                print("    无歌词 url，跳过歌词")
+              else:
                 try:
                   print(f"    下载歌词: {lrc[:90]}...")
-                  text = fetch_lyric_text(lrc)
-                  if text.strip():
+                  text, ctype_txt = fetch_lyric_text(lrc)
+                  ok_l, why = lyric_looks_ok(text, ctype_txt)
+                  if ok_l:
                     lyric_file = tmp / "lyric.lrc"
                     lyric_file.write_text(text, encoding="utf-8")
+                    print(f"    歌词: lyric.lrc ({len(text)} 字符)")
                   else:
-                    print("    歌词为空，跳过")
+                    lyric_err = why
+                    print(f"    歌词不可用({why})，跳过歌词")
                 except Exception as e:
-                  print(f"    歌词下载失败（继续归档歌曲）: {e}")
-              else:
-                print("    无歌词 url，跳过歌词")
+                  lyric_err = brief_error(e)
+                  print(f"    歌词下载失败（继续归档歌曲）: {lyric_err} / {e}")
 
-              # 4) 嵌入封面（独立封面文件保留不删）
+              # 4) 写标题/艺术家 tag —— 与封面无关，缺封面也照样写
+              tagged = write_tags(audio_tmp, title, author)
+              print(f"    写标题/艺术家 tag: {'成功' if tagged else '失败/不支持'}")
+
+              # 5) 嵌入封面（独立封面文件保留不删）
               embedded = False
               if cover_file is not None:
-                embedded = embed_cover(audio_tmp, cover_file, title, author)
+                embedded = embed_cover(audio_tmp, cover_file)
                 print(f"    嵌入封面: {'成功' if embedded else '失败/不支持（已保留独立封面）'}")
 
-              # 5) 写 info.json
+              # 6) 写 info.json（pic/lrc 保留原始 URL，缺失原因单独记录）
               import datetime
               info = {
                 "title": title,
                 "author": author,
                 "pic": pic,
+                "picOk": cover_file is not None,
+                "coverError": cover_err,
                 "url": file_url,
                 "lrc": lrc,
+                "lrcOk": lyric_file is not None,
+                "lyricError": lyric_err,
                 "songmid": str(record.get("songmid", "")),
                 "duration": record.get("duration"),
                 "reportedAt": record.get("reportedAt"),
@@ -286,16 +478,30 @@ jobs:
                   "cover": cover_file.name if cover_file else None,
                   "lyric": lyric_file.name if lyric_file else None,
                   "coverEmbedded": embedded,
+                  "tagsWritten": tagged,
                 },
               }
               (tmp / "info.json").write_text(json.dumps(info, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
-              # 6) 落盘：tmp 原子替换为正式文件夹
+              # 7) 落盘：tmp 原子替换为正式文件夹
               if target.exists():
                 import shutil
                 shutil.rmtree(target, ignore_errors=True)
               tmp.rename(target)
-              print(f"[OK] {folder_name} -> {audio_tmp.name}")
+
+              if cover_file is None:
+                MISSING.append((folder_name, "cover", cover_err or "unknown"))
+              if lyric_file is None:
+                MISSING.append((folder_name, "lyric", lyric_err or "unknown"))
+              note = ""
+              if cover_file is None or lyric_file is None:
+                bits = []
+                if cover_file is None:
+                  bits.append(f"缺封面({cover_err})")
+                if lyric_file is None:
+                  bits.append(f"缺歌词({lyric_err})")
+                note = " | " + "、".join(bits) + " → 已记入 info.json，等 cleanup 补抓"
+              print(f"[OK] {folder_name} -> {audio_tmp.name}{note}")
               return "ok"
             except Exception as e:
               import shutil
@@ -314,8 +520,15 @@ jobs:
               fail += 1
             else:
               skip += 1
+          no_cover = sum(1 for _, k, _ in MISSING if k == "cover")
+          no_lyric = sum(1 for _, k, _ in MISSING if k == "lyric")
           print(f"归档结果: 成功 {ok} / 失败 {fail} / 跳过 {skip}")
-          # 个别歌曲失败不让整个 workflow 失败（过期 url 等下一轮新上报覆盖后重试）
+          print(f"资源缺失: 缺封面 {no_cover} / 缺歌词 {no_lyric}")
+          for folder, kind, reason in MISSING:
+            print(f"  [MISSING] {folder} {kind} {reason}")
+          # 个别歌曲失败/缺资源都不让 workflow 失败：
+          #   - 歌曲失败 → JSON 留在 goodurl，下一轮新上报覆盖后重试
+          #   - 缺封面/歌词 → 已归档，由 cleanup 的 refetch 每天补抓
           PYEOF
 
       - name: Commit and push to main
