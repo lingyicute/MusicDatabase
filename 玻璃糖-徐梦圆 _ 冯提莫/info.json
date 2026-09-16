@@ -1,0 +1,17 @@
+{
+  "title": "玻璃糖",
+  "author": "徐梦圆 / 冯提莫",
+  "pic": "https://p4.music.126.net/9cySfhHshoKksSkAxwVVqw==/109951163175751210.jpg",
+  "url": "https://m8.music.126.net/20260916093832/f9e26d9b216e83c41513e1539d74fc04/ymusic/e990/786f/ace1/4a235be680039b93e0ee2c8537d187a6.mp3?vuutv=JOJBEfqK9UDirACk8K05Qh7kbR1fEKe9fx4gUklv737t6bu3XF8bLST0QJBssMea1xC596uAPQAiRA4g6HOJNJjIPWjW4zovLQjfEl2jfZI=",
+  "lrc": "https://vercel-meting-api.musifei.org/api?server=netease&type=lrc&id=536624791",
+  "songmid": "536624791",
+  "duration": 226,
+  "reportedAt": "2026-09-16T01:13:36.101Z",
+  "archivedAt": "2026-09-16T01:16:12.504618+00:00",
+  "files": {
+    "audio": "song.mp3",
+    "cover": null,
+    "lyric": "lyric.lrc",
+    "coverEmbedded": false
+  }
+}
