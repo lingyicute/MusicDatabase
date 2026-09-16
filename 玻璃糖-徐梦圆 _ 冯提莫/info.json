@@ -10,8 +10,12 @@
   "archivedAt": "2026-09-16T01:16:12.504618+00:00",
   "files": {
     "audio": "song.mp3",
-    "cover": null,
+    "cover": "cover.jpg",
     "lyric": "lyric.lrc",
-    "coverEmbedded": false
-  }
+    "coverEmbedded": true,
+    "tagsWritten": true
+  },
+  "picOk": true,
+  "coverError": null,
+  "refetchedCoverAt": "2026-09-16T07:05:20+00:00"
 }
