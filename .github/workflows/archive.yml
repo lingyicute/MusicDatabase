@@ -103,7 +103,8 @@ jobs:
                   backoff_factor=1.0,
                   status_forcelist=(429, 500, 502, 503, 504),
                   allowed_methods=frozenset(["GET", "HEAD"]),
-                  raise_on_status=False,   # 交给调用方的 raise_for_status 统一处理
+                  raise_on_status=False,          # 交给调用方的 raise_for_status 统一处理
+                  respect_retry_after_header=False,  # 无视 Retry-After，避免被 CDN 拖到 job 超时
               )
               adapter = HTTPAdapter(max_retries=retry, pool_connections=8, pool_maxsize=8)
               s.mount("https://", adapter)
@@ -113,10 +114,17 @@ jobs:
 
           SESSION = make_session()
 
+          def normalize_url(u):
+              """补全协议相对链接（QQ 音乐有时给 //y.gtimg.cn/...），其余原样返回。
+              任何类型都不抛异常：字段可能是 null / 数字 / 数组，畸形 JSON 不能拖垮整批。"""
+              u = "" if u is None else str(u)
+              u = u.strip()
+              return "https:" + u if u.startswith("//") else u
+
           def brief_error(e):
               """把异常压成一个短标记，写进 info.json 的 coverError / lyricError。"""
               if isinstance(e, (RuntimeError, ValueError)) and str(e):
-                  return str(e)[:60]          # 自定义校验原因，如 too_small(103B) / json_no_lyric
+                  return str(e)[:60]          # 自定义校验原因，如 too_small(103B) / not_image / not_lrc
               if isinstance(e, requests.HTTPError):
                   r = getattr(e, "response", None)
                   if r is not None:
@@ -338,9 +346,9 @@ jobs:
               return "skip"
             title = str(record.get("title", "")).strip()
             author = str(record.get("author", "")).strip()
-            pic = str(record.get("pic", "")).strip()
-            file_url = str(record.get("url", "")).strip()
-            lrc = str(record.get("lrc", "")).strip()
+            pic = normalize_url(record.get("pic"))
+            file_url = normalize_url(record.get("url"))
+            lrc = normalize_url(record.get("lrc"))
             if not title or not author or not file_url.startswith("http"):
               print(f"[SKIP] {json_path.name}: 字段缺失/非法")
               return "skip"
