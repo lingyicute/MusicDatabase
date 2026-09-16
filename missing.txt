@@ -2,7 +2,9 @@
 # 来源：各歌曲文件夹 info.json 里的 picOk / lrcOk（archive 软失败时写入）
 # 列（TAB 分隔）：folder  kind(cover|lyric)  reason  attempts  lastAttempt  url
 # attempts 达到上限后不再重试，条目保留在此供人工排查
+Faded-Alan Walker	lyric	no_url	0		
 Shape of You-Ed Sheeran	lyric	no_url	0		
 光影和你 (Live)-范茹	lyric	no_url	0		
 想你就写信 (Live)-周杰伦_李硕_张鑫	lyric	no_url	0		
+雨季限定-姚佳顺子	lyric	no_url	0		
 青花瓷-刘芳	lyric	no_url	0		
