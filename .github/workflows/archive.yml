@@ -64,37 +64,36 @@ jobs:
           MIN_COVER_BYTES: '1024'
         run: |
           python3 - <<'PYEOF'
-          import json, os, re, sys
+          # ===== SHARED-HELPERS-BEGIN =====
+          # 本区块在 archive.yml 和 cleanup.yml 里各存一份，必须【逐字一致】。
+          # tests/test_shared_block.py 会做字节级比对，改一处就得改两处。
+          # 为了保持两边一致，这里会有一两个对某个 workflow 用不到的 import，别顺手删。
+          import datetime
+          import json
+          import os
+          import re
           from pathlib import Path
           from urllib.parse import urlparse, unquote
           import requests
           from requests.adapters import HTTPAdapter
           from urllib3.util.retry import Retry
           import mutagen
-          from mutagen.mp3 import MP3
           from mutagen.id3 import ID3, APIC, TIT2, TPE1
           from mutagen.mp4 import MP4, MP4Cover
           from mutagen.flac import FLAC, Picture
-
-          GOODURL = Path(os.environ.get("GOODURL_DIR", "goodurl"))
-          MAIN = Path(os.environ.get("MAIN_DIR", "main"))
-          JSON_DIR = os.environ.get("JSON_DIR", "").strip().strip("/")
-          SRC = GOODURL / JSON_DIR if JSON_DIR else GOODURL
 
           UA = {
               "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0 Safari/537.36",
               "Referer": "https://y.qq.com/",
           }
           AUDIO_EXTS = {".mp3", ".m4a", ".mp4", ".flac", ".ogg", ".oga", ".wav", ".aac", ".wma", ".opus"}
-          MIN_AUDIO_BYTES = 50 * 1024  # 小于此值视为下载失败（可能是错误页）
-          MIN_DURATION = 60            # 服务端二次校验：时长必须 >60s
-          MIN_COVER_BYTES = int(os.environ.get("MIN_COVER_BYTES", "1024"))
-          RETRY_TOTAL = int(os.environ.get("RETRY_TOTAL", "3"))
           IMG_EXT = {"jpeg": ".jpg", "png": ".png", "webp": ".webp", "gif": ".gif"}
           IMG_MIME = {"jpeg": "image/jpeg", "png": "image/png", "webp": "image/webp", "gif": "image/gif"}
+          MIN_COVER_BYTES = int(os.environ.get("MIN_COVER_BYTES", "1024"))
+          RETRY_TOTAL = int(os.environ.get("RETRY_TOTAL", "3"))
 
-          # ---- 带自动重试的 Session：封面/歌词/音频共用 -------------------------------
           def make_session():
+              """带自动重试的 Session：封面/歌词/音频三条下载链路共用。"""
               s = requests.Session()
               retry = Retry(
                   total=RETRY_TOTAL,
@@ -104,7 +103,7 @@ jobs:
                   backoff_factor=1.0,
                   status_forcelist=(429, 500, 502, 503, 504),
                   allowed_methods=frozenset(["GET", "HEAD"]),
-                  raise_on_status=False,   # 交给下面的 raise_for_status 统一处理
+                  raise_on_status=False,   # 交给调用方的 raise_for_status 统一处理
               )
               adapter = HTTPAdapter(max_retries=retry, pool_connections=8, pool_maxsize=8)
               s.mount("https://", adapter)
@@ -116,6 +115,8 @@ jobs:
 
           def brief_error(e):
               """把异常压成一个短标记，写进 info.json 的 coverError / lyricError。"""
+              if isinstance(e, (RuntimeError, ValueError)) and str(e):
+                  return str(e)[:60]          # 自定义校验原因，如 too_small(103B) / json_no_lyric
               if isinstance(e, requests.HTTPError):
                   r = getattr(e, "response", None)
                   if r is not None:
@@ -125,18 +126,7 @@ jobs:
                   return "Timeout"
               if isinstance(e, requests.ConnectionError):
                   return "ConnectionError"
-              if isinstance(e, requests.RequestException):
-                  return type(e).__name__
               return type(e).__name__
-
-          def ext_from_url(u, default):
-              try:
-                  ext = os.path.splitext(unquote(urlparse(u).path))[1].lower()
-                  if re.fullmatch(r"\.[a-z0-9]{2,5}", ext):
-                      return ext
-              except Exception:
-                  pass
-              return default
 
           def download(url, dest, timeout=120):
               """先写 .part 再原子改名：中途断流不会在目标目录留下半截文件。"""
@@ -176,19 +166,40 @@ jobs:
                   return "gif"
               return None
 
-          def audio_duration(path):
-              try:
-                  f = mutagen.File(str(path))
-                  if f is not None and getattr(f, "info", None) is not None:
-                      L = getattr(f.info, "length", 0) or 0
-                      return float(L)
-              except Exception as e:
-                  print(f"    读取时长失败（继续归档）: {e}")
-              return None
+          def looks_like_html(text):
+              """直链失效时 CDN 可能返回 200 + 错误页；真歌词正文里不会出现 HTML 标签。"""
+              t = text.lstrip()[:2000]
+              low = t.lower()
+              if low.startswith("<!doctype") or low.startswith("<html") or low.startswith("<?xml"):
+                  return True
+              return re.search(r"<\s*[a-z!/][^>]*>", t, re.I) is not None
 
-          # ---- tag 写入：与封面解耦 --------------------------------------------------
+          def lyric_looks_ok(text):
+              """lrc 直链的内容校验，只挡三种明显不是歌词的响应。返回 (ok, reason)。"""
+              t = (text or "").strip()
+              if not t:
+                  return False, "empty"          # 空文件 / 全空白
+              if looks_like_html(t):
+                  return False, "html_page"      # 404 错误页之类
+              if t.startswith("{") and t.endswith("}"):
+                  return False, "not_lrc"        # 直链失效后返回的 JSON 错误体
+              return True, None
+
+          def fetch_lyric_text(url):
+              """lrc 字段固定是 .lrc 文件直链，直接当纯文本取回。"""
+              r = SESSION.get(url, timeout=60)
+              r.raise_for_status()
+              raw = r.content
+              # 中文 lrc 常见 GBK 编码，utf-8 解不动时退回 gb18030，避免乱码
+              for enc in ("utf-8", "gb18030"):
+                  try:
+                      return raw.decode(enc)
+                  except UnicodeDecodeError:
+                      continue
+              return raw.decode("utf-8", errors="replace")
+
           def write_tags(audio_path, title, author):
-              """只写标题/艺术家。没有封面时也会调用，避免音频变成"无名文件"。"""
+              """只写标题/艺术家。与封面解耦：没有封面时也会调用，避免音频变成无名文件。"""
               ext = audio_path.suffix.lower()
               try:
                   if ext == ".mp3":
@@ -290,53 +301,34 @@ jobs:
               except Exception as e:
                   print(f"    嵌入封面失败({ext}): {e}")
                   return False
+          # ===== SHARED-HELPERS-END =====
 
-          def looks_like_html(text):
-              t = text.lstrip()[:1024].lower()
-              if t.startswith("<!doctype") or t.startswith("<html") or t.startswith("<?xml"):
-                  return True
-              return ("<html" in t or "<body" in t) and "</" in t
+          GOODURL = Path(os.environ.get("GOODURL_DIR", "goodurl"))
+          MAIN = Path(os.environ.get("MAIN_DIR", "main"))
+          JSON_DIR = os.environ.get("JSON_DIR", "").strip().strip("/")
+          SRC = GOODURL / JSON_DIR if JSON_DIR else GOODURL
+          MIN_AUDIO_BYTES = 50 * 1024  # 小于此值视为下载失败（可能是错误页）
+          MIN_DURATION = 60            # 服务端二次校验：时长必须 >60s
+          MISSING = []                 # (folder, kind, reason) —— 只用于日志汇总，状态记在 info.json
 
-          def lyric_looks_ok(text, ctype):
-              """200 也可能是错误页/空 JSON，做一次内容校验。返回 (ok, reason)。"""
-              t = (text or "").strip()
-              if not t:
-                  return False, "empty"
-              if looks_like_html(t):
-                  return False, "html_page"
-              ct = (ctype or "").lower()
-              if "html" in ct and not re.search(r"\[\d{1,3}:\d{2}", t):
-                  return False, "html_ctype"
-              if t.startswith("{") and re.search(r'"(ret|code|errcode)"\s*:\s*(?!0\b)\d+', t):
-                  return False, "api_error"
-              return True, None
+          def ext_from_url(u, default):
+              try:
+                  ext = os.path.splitext(unquote(urlparse(u).path))[1].lower()
+                  if re.fullmatch(r"\.[a-z0-9]{2,5}", ext):
+                      return ext
+              except Exception:
+                  pass
+              return default
 
-          def fetch_lyric_text(url):
-              r = SESSION.get(url, timeout=60)
-              r.raise_for_status()
-              ctype = r.headers.get("Content-Type", "")
-              raw = r.content
-              text = None
-              for enc in ("utf-8", "gb18030"):
-                  try:
-                      text = raw.decode(enc)
-                      break
-                  except UnicodeDecodeError:
-                      continue
-              if text is None:
-                  text = raw.decode("utf-8", errors="replace")
-              t = text.strip()
-              if t.startswith("{"):
-                  try:
-                      j = json.loads(t)
-                      for k in ("lyric", "lrc", "data"):
-                          if isinstance(j.get(k), str) and j[k].strip():
-                              return j[k], ctype
-                  except Exception:
-                      pass
-              return text, ctype
-
-          MISSING = []  # (folder, kind, reason) —— 只用于日志汇总，实际状态记在 info.json
+          def audio_duration(path):
+              try:
+                  f = mutagen.File(str(path))
+                  if f is not None and getattr(f, "info", None) is not None:
+                      L = getattr(f.info, "length", 0) or 0
+                      return float(L)
+              except Exception as e:
+                  print(f"    读取时长失败（继续归档）: {e}")
+              return None
 
           def process_one(json_path):
             try:
@@ -361,9 +353,9 @@ jobs:
             # 注意：这里只判断音频，缺封面/缺歌词的老文件夹由 cleanup 的 refetch 负责补
             if target.is_dir():
               for p in target.glob("song.*"):
-                  if p.suffix.lower() in AUDIO_EXTS and p.stat().st_size > MIN_AUDIO_BYTES:
-                      print(f"[SKIP] {folder_name}: main 已存在，跳过")
-                      return "skip"
+                if p.suffix.lower() in AUDIO_EXTS and p.stat().st_size > MIN_AUDIO_BYTES:
+                  print(f"[SKIP] {folder_name}: main 已存在，跳过")
+                  return "skip"
 
             print(f"[PROC] {folder_name}")
             tmp = target.with_name(target.name + ".__tmp__")
@@ -391,6 +383,8 @@ jobs:
                 raise RuntimeError(f"实际时长 {dur:.1f}s ≤ 60s，丢弃")
               if dur:
                 print(f"    时长: {dur:.1f}s")
+              elif dur is None:
+                print("    警告: 无法解析时长（文件可能损坏），按时长未知继续归档")
 
               # 2) 下载专辑图（失败/无效只丢封面，歌曲继续归档）
               cover_file = None
@@ -434,8 +428,8 @@ jobs:
               else:
                 try:
                   print(f"    下载歌词: {lrc[:90]}...")
-                  text, ctype_txt = fetch_lyric_text(lrc)
-                  ok_l, why = lyric_looks_ok(text, ctype_txt)
+                  text = fetch_lyric_text(lrc)
+                  ok_l, why = lyric_looks_ok(text)
                   if ok_l:
                     lyric_file = tmp / "lyric.lrc"
                     lyric_file.write_text(text, encoding="utf-8")
@@ -458,7 +452,6 @@ jobs:
                 print(f"    嵌入封面: {'成功' if embedded else '失败/不支持（已保留独立封面）'}")
 
               # 6) 写 info.json（pic/lrc 保留原始 URL，缺失原因单独记录）
-              import datetime
               info = {
                 "title": title,
                 "author": author,
@@ -508,6 +501,13 @@ jobs:
               shutil.rmtree(tmp, ignore_errors=True)
               print(f"[FAIL] {folder_name}: {e}")
               return "fail"
+
+          # 上一轮如果被硬中断（超时/OOM），可能留下 .__tmp__ 目录；先扫掉，
+          # 否则会被后面的 git add -A 提交进 main
+          import shutil
+          for stale in sorted(MAIN.glob("*.__tmp__")):
+            shutil.rmtree(stale, ignore_errors=True)
+            print(f"[CLEAN] 删除残留临时目录: {stale.name}")
 
           jsons = sorted([p for p in SRC.glob("*.json") if p.is_file()])
           print(f"goodurl 待处理 JSON: {len(jsons)} 个")
