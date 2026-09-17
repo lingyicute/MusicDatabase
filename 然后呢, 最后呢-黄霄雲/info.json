@@ -1,0 +1,22 @@
+{
+  "title": "然后呢, 最后呢",
+  "author": "黄霄雲",
+  "pic": "https://p3.music.126.net/Gq2z2rUeH5ZqpxF7YktPSg==/109951170153229578.jpg",
+  "picOk": true,
+  "coverError": null,
+  "url": "https://m801.music.126.net/20260917225153/bee6a38619f2ecbdaec5edeed38d40c5/jdymusic/obj/wo3DlMOGwrbDjj7DisKw/56003201996/f82a/b2b7/32d7/4445e7e0126d273b3f322269ca8dc65a.mp3?vuutv=SBm5le1TVWWlfDp2/NDDfCT6z2CyuBmdcPiSY8+xiOg+iMZvxnvgVca3zAirHymI4n/Dn1Y+kTDaUCTlL+3BDWvMag470WbU1HiFYfVvVO4=",
+  "lrc": "https://vercel-meting-api.musifei.org/api?server=netease&type=lrc&id=2640175120",
+  "lrcOk": true,
+  "lyricError": null,
+  "songmid": "2640175120",
+  "duration": 343,
+  "reportedAt": "2026-09-17T14:26:55.023Z",
+  "archivedAt": "2026-09-17T14:27:44.791530+00:00",
+  "files": {
+    "audio": "song.mp3",
+    "cover": "cover.jpg",
+    "lyric": "lyric.lrc",
+    "coverEmbedded": true,
+    "tagsWritten": true
+  }
+}
