@@ -1,0 +1,22 @@
+{
+  "title": "你呀",
+  "author": "徐梦洁",
+  "pic": "https://p3.music.126.net/P-YjPRNcFg95qixdukCRTg==/109951169670085517.jpg",
+  "picOk": true,
+  "coverError": null,
+  "url": "https://m701.music.126.net/20260918152141/c0fc609e2b1a59263a4d24e50b58c8a4/jdymusic/obj/wo3DlMOGwrbDjj7DisKw/36546499201/4bed/a18a/9b22/168a429c0f26b8f6cd0bcd8a6abf507c.mp3?vuutv=rPshzX+WvR72ouV9bCa1264gddeOjg6LAaxqhBj5vNSPfO7QXEoz6d8+zpk35w6tp077UumpHeXNAJ02BWxAO7typ309dH8Cma8XiD55jZk=",
+  "lrc": "https://vercel-meting-api.musifei.org/api?server=netease&type=lrc&id=2164816587",
+  "lrcOk": true,
+  "lyricError": null,
+  "songmid": "2164816587",
+  "duration": 214,
+  "reportedAt": "2026-09-18T06:56:43.353Z",
+  "archivedAt": "2026-09-18T06:57:28.023424+00:00",
+  "files": {
+    "audio": "song.mp3",
+    "cover": "cover.jpg",
+    "lyric": "lyric.lrc",
+    "coverEmbedded": true,
+    "tagsWritten": true
+  }
+}
