@@ -118,7 +118,19 @@ jobs:
               meta = requests.get(f"{API}/contents/list.txt?ref=main", headers=H, timeout=30)
               if meta.status_code == 200:
                 sha = meta.json().get("sha")
-              body = {"message": f"chore: 更新已收集目录 ({len(song_dirs)} 首)", "content": new_b64, "branch": "main"}
+              body = {
+                "message": f"chore: 更新已收集目录 ({len(song_dirs)} 首)",
+                "content": new_b64,
+                "branch": "main",
+                "author": {
+                  "name": "lingyicute",
+                  "email": "160479206+lingyicute@users.noreply.github.com",
+                },
+                "committer": {
+                  "name": "lingyicute",
+                  "email": "160479206+lingyicute@users.noreply.github.com",
+                },
+              }
               if sha:
                 body["sha"] = sha
               put = requests.put(f"{API}/contents/list.txt", headers=H, json=body, timeout=60)
