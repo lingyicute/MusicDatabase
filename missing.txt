@@ -3,8 +3,16 @@
 # 列（TAB 分隔）：folder  kind(cover|lyric)  reason  attempts  lastAttempt  url
 # attempts 达到上限后不再重试，条目保留在此供人工排查
 Faded-Alan Walker	lyric	no_url	0		
+Hold the Light（冠以破碎之名）漫剧配乐-CY7	lyric	no_url	0		
 Shape of You-Ed Sheeran	lyric	no_url	0		
 光影和你 (Live)-范茹	lyric	no_url	0		
+再见，少年-冯提莫	lyric	no_url	0		
+吹海风-冯提莫	lyric	no_url	0		
 想你就写信 (Live)-周杰伦_李硕_张鑫	lyric	no_url	0		
+沉溺 (你让我的心不再结冰）-邹沛沛_Pank	lyric	no_url	0		
+沉溺(双女主版)-许知夏_甜Tiannnn	lyric	no_url	0		
+空心 (Live)-冯提莫	lyric	no_url	0		
+迷路-冯提莫	lyric	no_url	0		
+闪烁之光 (手游主题曲)-冯提莫	lyric	no_url	0		
 雨季限定-姚佳顺子	lyric	no_url	0		
 青花瓷-刘芳	lyric	no_url	0		
