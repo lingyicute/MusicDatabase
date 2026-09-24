@@ -1,0 +1,22 @@
+{
+  "title": "奔跑的光",
+  "author": "张小只ya",
+  "pic": "https://p3.music.126.net/Xak46d6-frKlCXj0Ov0rSg==/109951168518948520.jpg",
+  "picOk": true,
+  "coverError": null,
+  "url": "https://m701.music.126.net/20260924130228/067f27c4bbe4a0324fd32914cc34e0f3/jdymusic/obj/wo3DlMOGwrbDjj7DisKw/26392355176/4981/066a/8b6f/8573cd79254f84ad859c1da751824903.mp3?vuutv=7qu5vkMu5SfjEPeQouaSxQMltCbqGjQT3XNAtb+KTOqKCala07ombQe8DWSE35gwHtLVS15wgic4UEq/Q+ZCa2tXptJ8xOQhexCBuvXuz+U=",
+  "lrc": "https://vercel-meting-api.musifei.org/api?server=netease&type=lrc&id=2035951734",
+  "lrcOk": true,
+  "lyricError": null,
+  "songmid": "2035951734",
+  "duration": 213,
+  "reportedAt": "2026-09-24T04:37:29.621Z",
+  "archivedAt": "2026-09-24T04:39:07.157553+00:00",
+  "files": {
+    "audio": "song.mp3",
+    "cover": "cover.jpg",
+    "lyric": "lyric.lrc",
+    "coverEmbedded": true,
+    "tagsWritten": true
+  }
+}
