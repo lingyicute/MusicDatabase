@@ -1,0 +1,22 @@
+{
+  "title": "twilight zone (instrumental)",
+  "author": "Ariana Grande",
+  "pic": "https://p4.music.126.net/PlXVunPZBjjma4_qu8ibVA==/109951171338241490.jpg",
+  "picOk": true,
+  "coverError": null,
+  "url": "https://m701.music.126.net/20260924135228/eb82b177d6b3a54e1f728a08cc275c6c/jdymusic/obj/wo3DlMOGwrbDjj7DisKw/59153872489/034c/c674/31ba/f907f62acf1642bde40d20ec3cdf7653.mp3?vuutv=tVYaoCIQW0VD1hNz4zLj5CbY1PmEcsz0B93QudPngstF1/7KuUfIiRFP8OXQ1lmUAJKrorGHs7Jjl9gw/YyjbGxOBhZLJbJFDKatfcUh8gI=",
+  "lrc": "https://vercel-meting-api.musifei.org/api?server=netease&type=lrc&id=2717728936",
+  "lrcOk": true,
+  "lyricError": null,
+  "songmid": "2717728936",
+  "duration": 198,
+  "reportedAt": "2026-09-24T05:27:29.059Z",
+  "archivedAt": "2026-09-24T05:28:26.193745+00:00",
+  "files": {
+    "audio": "song.mp3",
+    "cover": "cover.jpg",
+    "lyric": "lyric.lrc",
+    "coverEmbedded": true,
+    "tagsWritten": true
+  }
+}
