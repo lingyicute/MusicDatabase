@@ -1,0 +1,22 @@
+{
+  "title": "想她",
+  "author": "张小只ya",
+  "pic": "https://p4.music.126.net/BHrZvH8uZ2Wn2-0G_OlxLg==/109951167856598652.jpg",
+  "picOk": true,
+  "coverError": null,
+  "url": "https://m701.music.126.net/20260924130958/06b75a1c1b9a1783cc1bb4fdb7e8ff85/jdymusic/obj/wo3DlMOGwrbDjj7DisKw/18699260497/7f1b/c17d/fa79/5be6c4cc7614629d0926e6345b3ba6fe.mp3?vuutv=SDual6L4pXBdopxPPwfXRIntA37+N2q9MMxmI9+etD6jpBDCL3PwIconk5plH2UK4KPqhdcqRcSUyv3RxLwCKAPxi3xKJFEQBTZDHKxMp7k=",
+  "lrc": "https://vercel-meting-api.musifei.org/api?server=netease&type=lrc&id=1979733324",
+  "lrcOk": true,
+  "lyricError": null,
+  "songmid": "1979733324",
+  "duration": 205,
+  "reportedAt": "2026-09-24T04:44:58.541Z",
+  "archivedAt": "2026-09-24T04:45:57.288832+00:00",
+  "files": {
+    "audio": "song.mp3",
+    "cover": "cover.jpg",
+    "lyric": "lyric.lrc",
+    "coverEmbedded": true,
+    "tagsWritten": true
+  }
+}
