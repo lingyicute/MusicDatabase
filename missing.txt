@@ -11,6 +11,7 @@ Shape of You-Ed Sheeran	lyric	no_url	0
 光影和你 (Live)-范茹	lyric	no_url	0		
 关于你的-很美味	lyric	no_url	0		
 再见，少年-冯提莫	lyric	no_url	0		
+吹梦到西洲-恋恋故人难_黄诗扶_王敬轩（妖扬）	lyric	no_url	0		
 吹海风-冯提莫	lyric	no_url	0		
 小河淌水(云南民歌)-彭丽媛	lyric	no_url	0		
 小河淌水-谭晶	lyric	no_url	0		
@@ -22,6 +23,7 @@ Shape of You-Ed Sheeran	lyric	no_url	0
 沉溺 (你让我的心不再结冰）-邹沛沛_Pank	lyric	no_url	0		
 沉溺(双女主版)-许知夏_甜Tiannnn	lyric	no_url	0		
 空心 (Live)-冯提莫	lyric	no_url	0		
+蝴蝶-洛天依_小v	lyric	no_url	0		
 迷路-冯提莫	lyric	no_url	0		
 闪烁之光 (手游主题曲)-冯提莫	lyric	no_url	0		
 雨季限定-姚佳顺子	lyric	no_url	0		
