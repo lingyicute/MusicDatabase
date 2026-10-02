@@ -1,0 +1,22 @@
+{
+  "title": "螺旋 - RASEN - Acoustic Ver. -",
+  "author": "9Lana",
+  "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000002VxGYv1msXTv.jpg",
+  "picOk": true,
+  "coverError": null,
+  "url": "https://aqqmusic.tc.qq.com/C400001962kM0ZI9gM.m4a?guid=6912695&vkey=D085AE15035722DB2AB176C33A38DB336B18C864A2ED1EB85337E35DD6491C069218F2D89FA22D6A789FAC852F7114AF147D9C56BC1A3C61__v2b9aacd1&uin=&fromtag=120032",
+  "lrc": "https://vercel-meting-api.musifei.org/api?server=tencent&type=lrc&id=001962kM0ZI9gM",
+  "lrcOk": true,
+  "lyricError": null,
+  "songmid": "001962kM0ZI9gM",
+  "duration": 233,
+  "reportedAt": "2026-10-02T15:06:16.748Z",
+  "archivedAt": "2026-10-02T15:07:13.105781+00:00",
+  "files": {
+    "audio": "song.m4a",
+    "cover": "cover.jpg",
+    "lyric": "lyric.lrc",
+    "coverEmbedded": true,
+    "tagsWritten": true
+  }
+}
