@@ -1,0 +1,23 @@
+{
+  "title": "灼 (kamin中文版)",
+  "author": "喻言",
+  "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000000J7q1W2HkdvO.jpg",
+  "picOk": true,
+  "coverError": null,
+  "url": "https://aqqmusic.tc.qq.com/C400001rj7fb10mzX4.m4a?guid=4777932&vkey=8859023C5E453A5B08ED61F720670D73BEAE0F8F32DD5541243AE87F06FB25E8AB95FDBF23832F203A34B7DBE4DD265A67594BC2D323C588__v2b9abba8&uin=&fromtag=120032",
+  "lrc": "https://vercel-meting-api.musifei.org/api?server=tencent&type=lrc&id=0012i8uz2CzpXF",
+  "lrcOk": true,
+  "lyricError": null,
+  "songmid": "0012i8uz2CzpXF",
+  "server": "",
+  "duration": 203,
+  "reportedAt": "2026-10-24T09:30:04.526Z",
+  "archivedAt": "2026-10-24T09:30:22.995466+00:00",
+  "files": {
+    "audio": "song.m4a",
+    "cover": "cover.jpg",
+    "lyric": "lyric.lrc",
+    "coverEmbedded": true,
+    "tagsWritten": true
+  }
+}
