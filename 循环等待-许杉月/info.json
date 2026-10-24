@@ -1,0 +1,23 @@
+{
+  "title": "循环等待",
+  "author": "许杉月",
+  "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000002DFsKI2LFEdx.jpg",
+  "picOk": true,
+  "coverError": null,
+  "url": "https://aqqmusic.tc.qq.com/C400002gwMus00LAWU.m4a?guid=885588&vkey=489FDF7DF6A7CA332CA2347FB2559A4D0A02567FFBB5E7D2A8C1DC9CD0584FF5CF6FA6C822493290BFCB26606C659AEF0CADA55E535B2DB6__v2b9abba8&uin=&fromtag=120032&src=C4000049xrWL1NetY9.m4a",
+  "lrc": "https://vercel-meting-api.musifei.org/api?server=tencent&type=lrc&id=003txYsq2SaAi9",
+  "lrcOk": true,
+  "lyricError": null,
+  "songmid": "003txYsq2SaAi9",
+  "server": "",
+  "duration": 217,
+  "reportedAt": "2026-10-24T08:27:21.465Z",
+  "archivedAt": "2026-10-24T08:27:43.083699+00:00",
+  "files": {
+    "audio": "song.m4a",
+    "cover": "cover.jpg",
+    "lyric": "lyric.lrc",
+    "coverEmbedded": true,
+    "tagsWritten": true
+  }
+}
