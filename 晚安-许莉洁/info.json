@@ -1,0 +1,23 @@
+{
+  "title": "晚安",
+  "author": "许莉洁",
+  "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000.jpg",
+  "picOk": false,
+  "coverError": "HTTP 404",
+  "url": "https://aqqmusic.tc.qq.com/C400003vZGIT3pPJLW.m4a?guid=9503069&vkey=18314968234BFC1BADB041E3CEF2F3ED9592F0307E480B25FCB8F36EE502A487349BAF3D927B9784C7909447B6D81EEA3643971D3E0DB3A4__v2b9a899c&uin=&fromtag=120032",
+  "lrc": "https://vercel-meting-api.musifei.org/api?server=tencent&type=lrc&id=000033wK2aPdea",
+  "lrcOk": true,
+  "lyricError": null,
+  "songmid": "000033wK2aPdea",
+  "server": "",
+  "duration": 284,
+  "reportedAt": "2026-10-24T10:02:04.135Z",
+  "archivedAt": "2026-10-24T10:02:21.118611+00:00",
+  "files": {
+    "audio": "song.m4a",
+    "cover": null,
+    "lyric": "lyric.lrc",
+    "coverEmbedded": false,
+    "tagsWritten": true
+  }
+}
