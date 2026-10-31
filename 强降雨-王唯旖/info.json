@@ -1,0 +1,23 @@
+{
+  "title": "强降雨",
+  "author": "王唯旖",
+  "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000003Y3xSp2SBldC.jpg",
+  "picOk": true,
+  "coverError": null,
+  "url": "https://aqqmusic.tc.qq.com/C400001byNN63kBvGy.m4a?guid=4680986&vkey=FB8CF83F1D6919383554FD8528F23EF7FB5283A97256CD77EE6FB71C592F4B008FB68A20F2543C5997ECD8CEE56F86D66BC6F8DB619039AE__v2b9abbae&uin=&fromtag=120032",
+  "lrc": "https://vercel-meting-api.musifei.org/api?server=tencent&type=lrc&id=001byNN63kBvGy",
+  "lrcOk": true,
+  "lyricError": null,
+  "songmid": "001byNN63kBvGy",
+  "server": "",
+  "duration": 223,
+  "reportedAt": "2026-10-31T10:12:51.252Z",
+  "archivedAt": "2026-10-31T10:13:24.522381+00:00",
+  "files": {
+    "audio": "song.m4a",
+    "cover": "cover.jpg",
+    "lyric": "lyric.lrc",
+    "coverEmbedded": true,
+    "tagsWritten": true
+  }
+}
