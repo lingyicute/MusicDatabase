@@ -1,0 +1,23 @@
+{
+  "title": "小半",
+  "author": "陈粒",
+  "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000004fAhFe0fdHYF.jpg",
+  "picOk": true,
+  "coverError": null,
+  "url": "https://aqqmusic.tc.qq.com/C400003Iu5fo0mXVj2.m4a?guid=7670381&vkey=8303A986F79E0BCF75CFB79EA0DCF4B5F0DF986D8E9B48553921ACECBA8ED1406A18AC642CF38E199ED612561FE9652A617B18BFE3949E5C__v2b94c740&uin=&fromtag=120032",
+  "lrc": "https://vercel-meting-api.musifei.org/api?server=tencent&type=lrc&id=001hs89m3C5p3g",
+  "lrcOk": true,
+  "lyricError": null,
+  "songmid": "001hs89m3C5p3g",
+  "server": "",
+  "duration": 297,
+  "reportedAt": "2026-10-31T15:03:00.217Z",
+  "archivedAt": "2026-10-31T15:03:19.529794+00:00",
+  "files": {
+    "audio": "song.m4a",
+    "cover": "cover.jpg",
+    "lyric": "lyric.lrc",
+    "coverEmbedded": true,
+    "tagsWritten": true
+  }
+}
