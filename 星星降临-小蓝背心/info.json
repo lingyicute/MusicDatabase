@@ -1,0 +1,23 @@
+{
+  "title": "星星降临",
+  "author": "小蓝背心",
+  "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000004ffuxC0VeSmR.jpg",
+  "picOk": true,
+  "coverError": null,
+  "url": "https://aqqmusic.tc.qq.com/C4000046daBc3MnnXY.m4a?guid=7266762&vkey=4C31AA6FA99D16AF26DCF6287FC8E72210EF632EC4AEC33E034617782CF31C5145F6280623CD647DD7F6A90EAA41092380BBF8241ABFA4C4__v2b9ab226&uin=&fromtag=120032",
+  "lrc": "https://vercel-meting-api.musifei.org/api?server=tencent&type=lrc&id=0046daBc3MnnXY",
+  "lrcOk": true,
+  "lyricError": null,
+  "songmid": "0046daBc3MnnXY",
+  "server": "",
+  "duration": 255,
+  "reportedAt": "2026-10-31T10:12:38.317Z",
+  "archivedAt": "2026-10-31T10:12:57.152514+00:00",
+  "files": {
+    "audio": "song.m4a",
+    "cover": "cover.jpg",
+    "lyric": "lyric.lrc",
+    "coverEmbedded": true,
+    "tagsWritten": true
+  }
+}
