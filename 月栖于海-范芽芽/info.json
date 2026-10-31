@@ -1,0 +1,23 @@
+{
+  "title": "月栖于海",
+  "author": "范芽芽",
+  "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000000lrfMy0fGubK.jpg",
+  "picOk": true,
+  "coverError": null,
+  "url": "https://aqqmusic.tc.qq.com/C4000043I62n1yWlhN.m4a?guid=7703633&vkey=B454774955AD7AC2675DC6B3DD9B540351CE79F71350AF4933B8DF3B6E1473D139A2D1886EBABA8EE6A1A9A40960A8B94558F594291F36A6__v2b9ab224&uin=&fromtag=120032",
+  "lrc": "https://vercel-meting-api.musifei.org/api?server=tencent&type=lrc&id=0043I62n1yWlhN",
+  "lrcOk": true,
+  "lyricError": null,
+  "songmid": "0043I62n1yWlhN",
+  "server": "",
+  "duration": 241,
+  "reportedAt": "2026-10-31T10:12:43.007Z",
+  "archivedAt": "2026-10-31T10:13:00.934509+00:00",
+  "files": {
+    "audio": "song.m4a",
+    "cover": "cover.jpg",
+    "lyric": "lyric.lrc",
+    "coverEmbedded": true,
+    "tagsWritten": true
+  }
+}
