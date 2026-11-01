@@ -1,0 +1,23 @@
+{
+  "title": "差一点心动",
+  "author": "赵希予 / 音格概念",
+  "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000000NpesN1rHXtL.jpg",
+  "picOk": true,
+  "coverError": null,
+  "url": "https://aqqmusic.tc.qq.com/C400004eOJXX1WQlQn.m4a?guid=426147&vkey=C4F79AB8DBA1A57B7DC42A4F2EA10B78B214E4C22F82EC87D81D0408631194C95901EDDA1F76594B8C7919F0E7874481BB0EF383B9B1DA40__v2b9abef1&uin=&fromtag=120032",
+  "lrc": "https://vercel-meting-api.musifei.org/api?server=tencent&type=lrc&id=004eOJXX1WQlQn",
+  "lrcOk": true,
+  "lyricError": null,
+  "songmid": "004eOJXX1WQlQn",
+  "server": "",
+  "duration": 193,
+  "reportedAt": "2026-11-01T10:02:31.589Z",
+  "archivedAt": "2026-11-01T10:02:50.028806+00:00",
+  "files": {
+    "audio": "song.m4a",
+    "cover": "cover.jpg",
+    "lyric": "lyric.lrc",
+    "coverEmbedded": true,
+    "tagsWritten": true
+  }
+}
