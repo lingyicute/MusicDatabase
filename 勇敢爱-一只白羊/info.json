@@ -1,0 +1,23 @@
+{
+  "title": "勇敢爱",
+  "author": "一只白羊",
+  "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M00000185aAD2uis9T.jpg",
+  "picOk": true,
+  "coverError": null,
+  "url": "https://aqqmusic.tc.qq.com/C400002KZ76I1LEL7n.m4a?guid=4864629&vkey=8A9A8280A5BC508593C26A75BDDD98C8878F02207B341CBDADE854F111F50CAC90C09047C6590F3121C772AE02043289B30953E67093E5CA__v21e2a1f1b&uin=&fromtag=120032",
+  "lrc": "https://vercel-meting-api.musifei.org/api?server=tencent&type=lrc&id=002KZ76I1LEL7n",
+  "lrcOk": true,
+  "lyricError": null,
+  "songmid": "002KZ76I1LEL7n",
+  "server": "",
+  "duration": 195,
+  "reportedAt": "2026-11-08T10:44:05.919Z",
+  "archivedAt": "2026-11-08T10:44:23.713280+00:00",
+  "files": {
+    "audio": "song.m4a",
+    "cover": "cover.jpg",
+    "lyric": "lyric.lrc",
+    "coverEmbedded": true,
+    "tagsWritten": true
+  }
+}
