@@ -6,8 +6,8 @@
   "coverError": "URL host/protocol not allowed",
   "url": "https://m701.music.126.net/20261111195105/fbe5f3ae83c7802743a0a7acb686a2e4/jdymusic/obj/wo3DlMOGwrbDjj7DisKw/24873678347/92da/edc2/ceeb/1f0936988520d420a71609bc0d6ca45f.mp3?vuutv=b4cqESAjX1jqUa4o91tci6K/zqjHJVaCcpZKJwucACPcwGZn1zetfoTnGW9d58rNcGXyzuR+cYFAb9evx1pQWHH6SaoQoa/6LRvOKOylbVo=",
   "lrc": "",
-  "lrcOk": false,
-  "lyricError": "no_url",
+  "lrcOk": true,
+  "lyricError": null,
   "songmid": "25640392",
   "server": "",
   "duration": 205,
@@ -16,8 +16,9 @@
   "files": {
     "audio": "song.mp3",
     "cover": null,
-    "lyric": null,
+    "lyric": "lyric.lrc",
     "coverEmbedded": false,
     "tagsWritten": true
-  }
+  },
+  "refetchedLyricAt": "2026-11-12T01:43:51+00:00"
 }
