@@ -8,6 +8,7 @@ A计划-小蓝背心	cover	no_url	0
 A计划-小蓝背心	lyric	no_url	0		
 Be My Light-段奥娟	cover	no_url	0		
 Be My Light-段奥娟	lyric	no_url	0		
+Five Hundred Miles-Justin Timberlake_Carey Mulligan_Stark Sands	cover	URL host/protocol not allowed	1	2026-11-13T00:44:59+00:00	http://p2.music.126.net/4BTe96FPQ_kW1pmNnlNvHg==/2536573326765583.jpg
 Just let it go (就忘了吧英文版)-七元	cover	no_url	0		
 Just let it go (就忘了吧英文版)-七元	lyric	no_url	0		
 Money Much（钞级夏天）-赵希予	cover	no_url	0		
@@ -58,7 +59,7 @@ Will We Ever (Slowed)-MIKS	lyric	no_url	0
 人鱼-小蓝背心	lyric	no_url	0		
 从那天起-有声有社	cover	no_url	0		
 从那天起-有声有社	lyric	no_url	0		
-会开花的云-姚晓棠	cover	URL host/protocol not allowed	1	2026-11-12T01:43:46+00:00	http://p2.music.126.net/bgxRbDt_UL5Wd2APsxiMZw==/109951169812582760.jpg
+会开花的云-姚晓棠	cover	URL host/protocol not allowed	2	2026-11-13T00:45:02+00:00	http://p2.music.126.net/bgxRbDt_UL5Wd2APsxiMZw==/109951169812582760.jpg
 会开花的云-王樾安	cover	no_url	0		
 会开花的云-王樾安	lyric	no_url	0		
 你是我的微风-史一	cover	no_url	0		
@@ -263,7 +264,7 @@ Will We Ever (Slowed)-MIKS	lyric	no_url	0
 昨日少年-大柯	lyric	no_url	0		
 是对爱的渴望-房东的猫	cover	no_url	0		
 是对爱的渴望-房东的猫	lyric	no_url	0		
-晚安-许莉洁	cover	HTTP 404	1	2026-11-12T01:43:50+00:00	https://y.gtimg.cn/music/photo_new/T002R300x300M000.jpg
+晚安-许莉洁	cover	HTTP 404	2	2026-11-13T00:45:03+00:00	https://y.gtimg.cn/music/photo_new/T002R300x300M000.jpg
 晚风吹过落日海-小蓝背心	cover	no_url	0		
 晚风吹过落日海-小蓝背心	lyric	no_url	0		
 晚风快递-蓝心羽	cover	no_url	0		
@@ -296,7 +297,7 @@ Will We Ever (Slowed)-MIKS	lyric	no_url	0
 棉花糖-Sasablue	lyric	no_url	0		
 每朵花都会盛开-爱朵女孩	cover	no_url	0		
 每朵花都会盛开-爱朵女孩	lyric	no_url	0		
-淋雨一直走-张韶涵	cover	URL host/protocol not allowed	1	2026-11-12T01:43:50+00:00	http://p2.music.126.net/pcic3NwD7xdvHLvuT5jWWQ==/109951168308921434.jpg
+淋雨一直走-张韶涵	cover	URL host/protocol not allowed	2	2026-11-13T00:45:03+00:00	http://p2.music.126.net/pcic3NwD7xdvHLvuT5jWWQ==/109951168308921434.jpg
 清明-音阙诗听 _ 李佳思	cover	no_url	0		
 清明-音阙诗听 _ 李佳思	lyric	no_url	0		
 渊海-单循	cover	no_url	0		
@@ -331,7 +332,7 @@ Will We Ever (Slowed)-MIKS	lyric	no_url	0
 白船-Ssweetxin_	lyric	no_url	0		
 百花香-魏新雨	cover	no_url	0		
 百花香-魏新雨	lyric	no_url	0		
-目及皆是你-小蓝背心	cover	URL host/protocol not allowed	2	2026-11-12T01:43:51+00:00	http://p1.music.126.net/jDTEtAnZiDvfq5iBpLQBRA==/109951166171265193.jpg
+目及皆是你-小蓝背心	cover	URL host/protocol not allowed	3	2026-11-13T00:45:03+00:00	http://p1.music.126.net/jDTEtAnZiDvfq5iBpLQBRA==/109951166171265193.jpg
 盲盒-小蓝背心 _ 飞行工作室	cover	no_url	0		
 盲盒-小蓝背心 _ 飞行工作室	lyric	no_url	0		
 看到风-冯提莫	cover	no_url	0		
