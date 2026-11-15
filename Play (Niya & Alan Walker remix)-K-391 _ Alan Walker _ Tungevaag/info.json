@@ -1,0 +1,23 @@
+{
+  "title": "Play (Niya & Alan Walker remix)",
+  "author": "K-391 / Alan Walker / Tungevaag",
+  "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000002HmzuF2PU41D.jpg",
+  "picOk": true,
+  "coverError": null,
+  "url": "https://aqqmusic.tc.qq.com/C400003jKmTF0QN9tx.m4a?guid=590640&vkey=FD7586E39EB385939BD89AD523BB900276837EC11E74DC9153E4BA671EEEAE1DC821D8814F1BAAEF74950BCCA55D3F1225ADEDB80B7455FF__v2b9abb9c&uin=&fromtag=120032&src=C400002BdxBQ3arIM9.m4a",
+  "lrc": "https://vercel-meting-api.musifei.org/api?server=tencent&type=lrc&id=0014AVFE36eSme",
+  "lrcOk": true,
+  "lyricError": null,
+  "songmid": "0014AVFE36eSme",
+  "server": "",
+  "duration": 157,
+  "reportedAt": "2026-11-15T15:44:24.639Z",
+  "archivedAt": "2026-11-15T15:45:23.768986+00:00",
+  "files": {
+    "audio": "song.m4a",
+    "cover": "cover.jpg",
+    "lyric": "lyric.lrc",
+    "coverEmbedded": true,
+    "tagsWritten": true
+  }
+}
