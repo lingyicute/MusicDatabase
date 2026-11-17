@@ -1,0 +1,23 @@
+{
+  "title": "众声喧哗",
+  "author": "黄霄雲",
+  "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000000CBnHM3RxPjM.jpg",
+  "picOk": true,
+  "coverError": null,
+  "url": "https://aqqmusic.tc.qq.com/C400003JxKDj001L56.m4a?guid=496137&vkey=8387AB4CCEE57EB7FA250571F5580ABC84A7E9E41C86C700021B3B0E3A041B36AE9DE01C9F6F24B7ED4515C15924AE8BAD15D763E1F4AD94__v2b9abbac&uin=&fromtag=120032&src=C400002yJF9s0T65Tr.m4a",
+  "lrc": "https://vercel-meting-api.musifei.org/api?server=tencent&type=lrc&id=001v1JiS21ZJkf",
+  "lrcOk": true,
+  "lyricError": null,
+  "songmid": "001v1JiS21ZJkf",
+  "server": "",
+  "duration": 279,
+  "reportedAt": "2026-11-17T10:42:04.762Z",
+  "archivedAt": "2026-11-17T10:43:02.926782+00:00",
+  "files": {
+    "audio": "song.m4a",
+    "cover": "cover.jpg",
+    "lyric": "lyric.lrc",
+    "coverEmbedded": true,
+    "tagsWritten": true
+  }
+}
