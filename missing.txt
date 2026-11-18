@@ -8,8 +8,8 @@ A计划-小蓝背心	cover	no_url	0
 A计划-小蓝背心	lyric	no_url	0		
 Be My Light-段奥娟	cover	no_url	0		
 Be My Light-段奥娟	lyric	no_url	0		
-Do Or Die-Axel Johansson	cover	URL host/protocol not allowed	3	2026-11-17T02:40:09+00:00	http://p1.music.126.net/RhNBFnZHNei0QotWLU-kxQ==/109951165984746689.jpg
-Five Hundred Miles-Justin Timberlake_Carey Mulligan_Stark Sands	cover	URL host/protocol not allowed	4	2026-11-17T02:40:09+00:00	http://p2.music.126.net/4BTe96FPQ_kW1pmNnlNvHg==/2536573326765583.jpg
+Do Or Die-Axel Johansson	cover	URL host/protocol not allowed	4	2026-11-18T01:55:03+00:00	http://p1.music.126.net/RhNBFnZHNei0QotWLU-kxQ==/109951165984746689.jpg
+Five Hundred Miles-Justin Timberlake_Carey Mulligan_Stark Sands	cover	URL host/protocol not allowed	5	2026-11-18T01:55:03+00:00	http://p2.music.126.net/4BTe96FPQ_kW1pmNnlNvHg==/2536573326765583.jpg
 Just let it go (就忘了吧英文版)-七元	cover	no_url	0		
 Just let it go (就忘了吧英文版)-七元	lyric	no_url	0		
 Money Much（钞级夏天）-赵希予	cover	no_url	0		
