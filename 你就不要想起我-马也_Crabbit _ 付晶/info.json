@@ -1,0 +1,23 @@
+{
+  "title": "你就不要想起我",
+  "author": "马也_Crabbit / 付晶",
+  "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000000Bdpyh2WI8CI.jpg",
+  "picOk": true,
+  "coverError": null,
+  "url": "https://aqqmusic.tc.qq.com/C400000Swiuu0Opjop.m4a?guid=7682273&vkey=BA2EAD31D379AE22A3CA5756E2FB9B7031E0CF14AA9DA17235B73D6E66D9797C9EFFCD7C6CEDABE8F6A2DE583F381AF74DFE8602FD3803EA__v21e2a16c1&uin=&fromtag=120032&src=C400001hNFD20INbKR.m4a",
+  "lrc": "https://vercel-meting-api.musifei.org/api?server=tencent&type=lrc&id=003hvITB1tC72K",
+  "lrcOk": true,
+  "lyricError": null,
+  "songmid": "003hvITB1tC72K",
+  "server": "",
+  "duration": 281,
+  "reportedAt": "2026-11-20T03:43:46.419Z",
+  "archivedAt": "2026-11-20T03:44:18.577121+00:00",
+  "files": {
+    "audio": "song.m4a",
+    "cover": "cover.jpg",
+    "lyric": "lyric.lrc",
+    "coverEmbedded": true,
+    "tagsWritten": true
+  }
+}
