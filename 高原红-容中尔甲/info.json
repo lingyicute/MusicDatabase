@@ -1,0 +1,23 @@
+{
+  "title": "高原红",
+  "author": "容中尔甲",
+  "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000004Rt6vz1cBrMS.jpg",
+  "picOk": true,
+  "coverError": null,
+  "url": "https://aqqmusic.tc.qq.com/C400000yN4cl3hxv8C.m4a?guid=1610972&vkey=19FF449A29E9DBDCF98667D97C1FAF3F260E536E4E713005E82437FB9FFC3C0841512E1362B7865CFF480748708FCB8DA2FE87B29496D8AE__v2b9ab982&uin=&fromtag=120032",
+  "lrc": "https://vercel-meting-api.musifei.org/api?server=tencent&type=lrc&id=003mOMyX14KRxz",
+  "lrcOk": true,
+  "lyricError": null,
+  "songmid": "003mOMyX14KRxz",
+  "server": "",
+  "duration": 277,
+  "reportedAt": "2026-11-20T03:43:34.455Z",
+  "archivedAt": "2026-11-20T03:43:53.473338+00:00",
+  "files": {
+    "audio": "song.m4a",
+    "cover": "cover.jpg",
+    "lyric": "lyric.lrc",
+    "coverEmbedded": true,
+    "tagsWritten": true
+  }
+}
