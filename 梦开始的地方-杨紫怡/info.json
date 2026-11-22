@@ -1,0 +1,23 @@
+{
+  "title": "梦开始的地方",
+  "author": "杨紫怡",
+  "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000001D0FFn1nUR4t.jpg",
+  "picOk": true,
+  "coverError": null,
+  "url": "https://aqqmusic.tc.qq.com/C4000044d6j91H2NhS.m4a?guid=9598781&vkey=658E57F3681EA549BC58A08DB57D42C1B9F791031D2C84FD677276A04A922C674F4476A9392CADCAA21A16BDA932E7736B57956F4EC34837__v2b94c265&uin=&fromtag=120032",
+  "lrc": "https://vercel-meting-api.musifei.org/api?server=tencent&type=lrc&id=003stg1M4TiV6P",
+  "lrcOk": true,
+  "lyricError": null,
+  "songmid": "003stg1M4TiV6P",
+  "server": "",
+  "duration": 253,
+  "reportedAt": "2026-11-22T15:34:35.917Z",
+  "archivedAt": "2026-11-22T15:35:09.786564+00:00",
+  "files": {
+    "audio": "song.m4a",
+    "cover": "cover.jpg",
+    "lyric": "lyric.lrc",
+    "coverEmbedded": true,
+    "tagsWritten": true
+  }
+}

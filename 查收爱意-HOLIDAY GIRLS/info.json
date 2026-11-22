@@ -1,0 +1,23 @@
+{
+  "title": "查收爱意",
+  "author": "HOLIDAY GIRLS",
+  "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000003Eclas1JLkBr.jpg",
+  "picOk": true,
+  "coverError": null,
+  "url": "https://aqqmusic.tc.qq.com/C400003EgC4k2kacmU.m4a?guid=1338582&vkey=D226FD05242EB2FC576A5C725CB71FFD233CC984B8BF63D702FD29F483981656CAE7B5CA8AAA1FB064AD384D015B54E6BE5E0C8BF8AEA5F8__v2b94c265&uin=&fromtag=120032&src=C4000030qzck29bhSO.m4a",
+  "lrc": "https://vercel-meting-api.musifei.org/api?server=tencent&type=lrc&id=003EgC4k2kacmU",
+  "lrcOk": true,
+  "lyricError": null,
+  "songmid": "003EgC4k2kacmU",
+  "server": "",
+  "duration": 173,
+  "reportedAt": "2026-11-22T15:34:43.159Z",
+  "archivedAt": "2026-11-22T15:35:06.208605+00:00",
+  "files": {
+    "audio": "song.m4a",
+    "cover": "cover.jpg",
+    "lyric": "lyric.lrc",
+    "coverEmbedded": true,
+    "tagsWritten": true
+  }
+}
