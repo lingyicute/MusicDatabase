@@ -1,0 +1,23 @@
+{
+  "title": "专心",
+  "author": "麦小兜",
+  "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M0000009301C25Qslt.jpg",
+  "picOk": true,
+  "coverError": null,
+  "url": "https://aqqmusic.tc.qq.com/C400003dVnvd4KWMg3.m4a?guid=8039739&vkey=EEF118C4E281E46DC76B7B5184B769462BE9C098D84BC0DB8E63025D6B4C963C6EEE3EA66D5BE16F814239D944022B9483D01F7D84189921__v2b9abb89&uin=&fromtag=120032",
+  "lrc": "https://vercel-meting-api.musifei.org/api?server=tencent&type=lrc&id=004ORidz1yjkAd",
+  "lrcOk": true,
+  "lyricError": null,
+  "songmid": "004ORidz1yjkAd",
+  "server": "",
+  "duration": 187,
+  "reportedAt": "2026-11-27T03:20:59.583Z",
+  "archivedAt": "2026-11-27T03:21:14.998765+00:00",
+  "files": {
+    "audio": "song.m4a",
+    "cover": "cover.jpg",
+    "lyric": "lyric.lrc",
+    "coverEmbedded": true,
+    "tagsWritten": true
+  }
+}
