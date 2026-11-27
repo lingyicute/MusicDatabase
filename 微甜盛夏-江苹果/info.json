@@ -1,0 +1,23 @@
+{
+  "title": "微甜盛夏",
+  "author": "江苹果",
+  "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000003I8d303qNp3B.jpg",
+  "picOk": true,
+  "coverError": null,
+  "url": "https://aqqmusic.tc.qq.com/C400003dGuNQ2ma5Aw.m4a?guid=3784749&vkey=B5C7A96F260DB322E0C95DF0FE3BE0F0B3B92D297BA92D9343ABA8DD96941C6908C798A48C3F8493D53F4F6A43F0982CC37CE6C455468B9F__v2b9abb9c&uin=&fromtag=120032",
+  "lrc": "https://vercel-meting-api.musifei.org/api?server=tencent&type=lrc&id=002lpZCU1yuej6",
+  "lrcOk": true,
+  "lyricError": null,
+  "songmid": "002lpZCU1yuej6",
+  "server": "",
+  "duration": 197,
+  "reportedAt": "2026-11-27T03:53:26.659Z",
+  "archivedAt": "2026-11-27T03:53:48.059770+00:00",
+  "files": {
+    "audio": "song.m4a",
+    "cover": "cover.jpg",
+    "lyric": "lyric.lrc",
+    "coverEmbedded": true,
+    "tagsWritten": true
+  }
+}
