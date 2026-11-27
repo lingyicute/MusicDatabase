@@ -1,0 +1,23 @@
+{
+  "title": "云外赴约",
+  "author": "黎汐x",
+  "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000003FohP93F3wfI.jpg",
+  "picOk": true,
+  "coverError": null,
+  "url": "https://aqqmusic.tc.qq.com/C400003oqgep3KanL0.m4a?guid=9190888&vkey=D97025CBA73C17091A6525DE4AE6999E4F76EDB3F804A04E2613AED5A7DF8FAFFEAEDAC861856E2A694522354D0133CB59F7DF86529B4BBB__v2b9a899c&uin=&fromtag=120032",
+  "lrc": "https://vercel-meting-api.musifei.org/api?server=tencent&type=lrc&id=003oqgep3KanL0",
+  "lrcOk": true,
+  "lyricError": null,
+  "songmid": "003oqgep3KanL0",
+  "server": "",
+  "duration": 220,
+  "reportedAt": "2026-11-27T03:34:56.980Z",
+  "archivedAt": "2026-11-27T03:35:16.664044+00:00",
+  "files": {
+    "audio": "song.m4a",
+    "cover": "cover.jpg",
+    "lyric": "lyric.lrc",
+    "coverEmbedded": true,
+    "tagsWritten": true
+  }
+}
