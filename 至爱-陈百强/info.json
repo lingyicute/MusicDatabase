@@ -1,0 +1,23 @@
+{
+  "title": "至爱",
+  "author": "陈百强",
+  "pic": "https://p2.music.126.net/7L-kpmga0FDGF_HbJKNMIg==/109951169300477676.jpg",
+  "picOk": true,
+  "coverError": null,
+  "url": "https://vercel-meting-api.musifei.org/api?server=netease&type=url&id=66090",
+  "lrc": "https://vercel-meting-api.musifei.org/api?server=netease&type=lrc&id=66090",
+  "lrcOk": true,
+  "lyricError": null,
+  "songmid": "66090",
+  "server": "",
+  "duration": 307,
+  "reportedAt": "2026-11-28T10:12:03.157Z",
+  "archivedAt": "2026-11-28T10:12:22.863555+00:00",
+  "files": {
+    "audio": "song.mp3",
+    "cover": "cover.jpg",
+    "lyric": "lyric.lrc",
+    "coverEmbedded": true,
+    "tagsWritten": true
+  }
+}
